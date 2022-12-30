@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,14 @@ Route::get('/forgotPass', function() {
     return view('forgotPass');
 });
 
+Route::get('/dashboard', function() {
+    return view('dashboard');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
+
 
 Route::get('/member', [MemberController::class, 'index']);
 
@@ -41,3 +50,5 @@ Route::get('/member/login', [MemberController::class, 'login']);
 Route::get('/member/register', [MemberController::class, 'register']);
 
 Route::get('/member/profile', [MemberController::class, 'profile']);
+
+Route::get('/googleMaps', [GoogleController::class, 'index']);
