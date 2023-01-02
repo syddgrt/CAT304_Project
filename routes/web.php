@@ -14,7 +14,7 @@ use App\Http\Controllers\GoogleController;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 

@@ -11,18 +11,30 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Google</title>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_Advm7EKTGcSxdYsa2YtsLfOFDddg3UU&callback=initMap">
+</script>
+    <style type="text/css">
+        #map {
+          height: 400px;
+        }
+    </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="/main">ReportTruzz</a>
+                <a class="navbar-brand" href="/googleMaps">ReportTruzz</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="/main">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/googleMaps">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/googleMaps">Maps</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,10 +51,10 @@
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2>What is ReportTruzz</h2>
+                        <h2>ReportTruzz</h2>
                         <p class="lead"></p>
                         <ul>
-                            <li>ReportTruzz is a system that aims to improve the overall quality of life of the society by promoting top tier infrastructure maintenance</li>
+                            <li>ReporTruzz maps are implemented by using the famous and trusted Google Maps API by Google, designed and custom-coded to fit the requirements of software</li>
                         </ul>
                     </div>
                 </div>
@@ -50,21 +62,24 @@
         </section>
         <!-- Services section-->
         <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>How ReportTruzz works</h2>
-                        <p class="lead">Power to the people!</p>
-                        <ul>
-                        <li>ReportTruzz works by implementing top-tier collaboration features</li>
-                        <li>Users of the app can upload photos and images that shows of present infrastructure problems</li>
-                        <li>Other users can then comment, update on the situation etc</li>
-                        
-                        
-                        </ul>
-                    </div>
-                </div>
-            </div>
+           <script type="text/javascript">
+        function initMap() {
+          const myLatLng = { lat: 5.297208092351888 , lng: 100.25642446854533 };
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 5,
+            center: myLatLng,
+          });
+  
+          new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Hello Rajkot!",
+          });
+        }
+  
+        window.initMap = initMap;
+    </script>
+            
         </section>
         <!-- Contact section-->
         <!-- <section id="contact">
@@ -81,6 +96,13 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+
+        <div class="container mt-5">
+        <h2>ReporTruzz map</h2>
+        <div id="map"></div>
+    </div>
+  
+   
     </body>
 </html>
 
