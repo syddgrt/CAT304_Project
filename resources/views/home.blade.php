@@ -58,8 +58,8 @@
                         <a href="https://ibb.co/7SJ3Jst"><img class="card-img-top" src="https://i.ibb.co/51WQWbh/myvi.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
-                            <h2 class="card-title">Myvi King of The Road Malaysia</h2>
-                            <a class="btn btn-secondary" href="#!">Read more →</a>
+                            <h2 class="card-title">Myvi Malaysia King of The Road </h2>
+                            <a class="btn btn-secondary" href="/myvi">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
