@@ -26,16 +26,16 @@
         <div>{{ session('status') }}</div>
     @endif
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand font-weight-bolder" href="/main">ReportTruzz</a>
+                <a class="navbar-brand font-weight-bolder col-8" href="/main">ReportTruzz</a>
                 <a class="navbar-brand">{{ Auth::user()->name }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item "><a class="nav-link" href="/main">About</a></li>
-                        <li class="nav-item font-italic"><a class="nav-link" href="/home">Home</a></li>
-                        <li class="nav-item font-bolder"><a class="nav-link" href="/googleMaps">Maps</a></li>
+                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/main">About</a></li>
+                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/home">Home</a></li>
+                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/googleMaps">Maps</a></li>
 
                         <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <div class="small text-muted ">January 1, 2022</div>
                             <h2 class="card-title">Myvi King of The Road Malaysia</h2>
-                            <a class="btn btn-secondary" href="#!">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
@@ -100,11 +100,13 @@
                             </div>
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="https://ibb.co/28TRDYT"><img class="card-img-top"  src="https://i.ibb.co/f8sZhGs/Whats-App-Image-2023-01-06-at-1-32-32-AM.jpg" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
+                                    <div class="small text-muted">August 19, 2022</div>
+                                    <h2 class="card-title h4">Abandoned Ferry ruined scenery</h2>
+                                    <p class="card-text">An old ferry is ruining the view at Queensbay Beach. Really hoping that appropriate authorities will
+                                        take action immediately.
+                                    </p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
@@ -128,7 +130,7 @@
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header bg-gradient-light ">Search</div>
                         <div class="card-body">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
@@ -138,7 +140,7 @@
                     </div>
                     <!-- Categories widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header bg-gradient-light">Categories</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -160,8 +162,8 @@
                     </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                        <div class="card-header bg-gradient-light">Announcement</div>
+                        <div class="card-body">No recent announcement!</div>
                     </div>
                 </div>
             </div>
