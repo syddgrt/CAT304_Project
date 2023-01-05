@@ -57,7 +57,7 @@
                     <div class="card mb-4">
                         <a href="https://ibb.co/7SJ3Jst"><img class="card-img-top" src="https://i.ibb.co/51WQWbh/myvi.jpg" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted ">January 1, 2022</div>
+                            <div class="small text-muted">January 1, 2022</div>
                             <h2 class="card-title">Myvi King of The Road Malaysia</h2>
                             <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\MyviController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,9 @@ Route::get('/create', function () {
     return view('create');
 });
 
-Route::get('/member', [MemberController::class, 'index']);
-
-Route::get('/member/register', [MemberController::class, 'register']);
-
-Route::get('/member/profile', [MemberController::class, 'profile']);
-
 Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+Route::get('/myvi', [MyviController::class, 'index']);
 
 Route::view('main', 'main')
 	->name('main')
