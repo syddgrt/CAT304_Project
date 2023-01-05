@@ -18,37 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function() {
-    return view('register');
-});
-
-Route::get('/login', function() {
-    return view('login');
-});
-
-Route::get('/main', function() {
-    return view('main');
-});
-
-Route::get('/forgotPass', function() {
-    return view('forgotPass');
-});
-
-Route::get('/dashboard', function() {
-    return view('dashboard');
-});
-
 Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/create', function () {
+    return view('create');
+});
 
 Route::get('/member', [MemberController::class, 'index']);
-
-Route::get('/member/login', [MemberController::class, 'login']);
 
 Route::get('/member/register', [MemberController::class, 'register']);
 
 Route::get('/member/profile', [MemberController::class, 'profile']);
 
 Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+Route::view('main', 'main')
+	->name('main')
+	->middleware(['auth', 'verified']);

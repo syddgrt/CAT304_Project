@@ -21,32 +21,64 @@
 
     <body>
        <!-- Navigation-->
-
-       @if (session('status'))
-        <div>{{ session('status') }}</div>
-    @endif
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="/main">ReportTruzz</a>
-                <a class="navbar-brand">{{ Auth::user()->name }}</a>
+                <a class="navbar-brand" href="/home">ReportTruzz</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="/main">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/googleMaps">Maps</a></li>
-
-                        <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit">
-                            {{ __('Logout') }}
-                        </button>
-                        </form>
                     </ul>
                 </div>
             </div>
         </nav>
+
+         <!-- Create post-->
+
+        <div class="m-auto w-4/8 py-40">
+        <div class="text-center">
+            <h1 class="text-5xl uppercase bold">
+                Create post
+            </h1>
+        </div>
+    </div>
+
+    <div class="flex justify-center pt-20">
+        <form action="/cars" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="block">
+                <input 
+                    type="file"
+                    class="block shadow-5xl mb-1 p-2 w-80 italic placeholder-gray-400"
+                    name="image"
+                    placeholder="Upload image...">
+
+                <input 
+                    type="text"
+                    class="block shadow-5xl mb-1 p-2 w-80 italic placeholder-gray-400"
+                    name="name"
+                    placeholder="Post title...">
+
+                    <input 
+                        type="text"
+                        class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"
+                        name="date"
+                        placeholder="Date...">
+
+                    <input 
+                        type="text"
+                        class="block shadow-5xl mb-10 p-2 w-80 italic placeholder-gray-400"
+                        name="description"
+                        placeholder="Description...">
+
+                    <button type="submit" class="bg-green-500 block shadow-5xl mb-10 p-2 w-80 uppercase font-bold">
+                        Submit
+                    </button>
+            </div>
+        </form>
+    </div>
         
         <!-- Page content-->
         <div class="container">
