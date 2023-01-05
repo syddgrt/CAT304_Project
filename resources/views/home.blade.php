@@ -57,7 +57,7 @@
                     <div class="card mb-4">
                         <a href="https://ibb.co/7SJ3Jst"><img class="card-img-top" src="https://i.ibb.co/51WQWbh/myvi.jpg" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2022</div>
+                            <div class="small text-muted ">January 1, 2022</div>
                             <h2 class="card-title">Myvi King of The Road Malaysia</h2>
                             <a class="btn btn-secondary" href="#!">Read more →</a>
                         </div>
@@ -77,11 +77,11 @@
                             </div>
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="https://ibb.co/bdtsTtp"><img class="card-img-top"  src="https://i.ibb.co/ry9xY9n/IMG-9550.jpg" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">hensem</h2>
-                                    <p class="card-text">aiya</p>
+                                    <div class="small text-muted">March 12, 2022</div>
+                                    <h2 class="card-title h4">Stray dogs lurking near Ivory Apartment  </h2>
+                                    <p class="card-text">Requesting help from any NGO or government organizations as the matter causing terror to our childrens</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
@@ -89,11 +89,12 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="https://ibb.co/k4z6PXS"><img class="card-img-top"   src="https://i.ibb.co/VgbpkTq/Whats-App-Image-2023-01-06-at-1-32-09-AM.jpg" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                    <div class="small text-muted">May 7, 2022</div>
+                                    <h2 class="card-title h4">Broken car causing rat infestation</h2>
+                                    <p class="card-text">This broken car have been here almost 3 years. This lead to the increasing 
+                                        number of rats and destroying the beauty of our surrounding </p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
