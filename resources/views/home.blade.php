@@ -58,7 +58,7 @@
                         <a href="https://ibb.co/7SJ3Jst"><img class="card-img-top" src="https://i.ibb.co/51WQWbh/myvi.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
-                            <h2 class="card-title">Myvi King of the Road</h2>
+                            <h2 class="card-title">Myvi King of The Road Malaysia</h2>
                             <a class="btn btn-secondary" href="#!">Read more →</a>
                         </div>
                     </div>
@@ -67,11 +67,11 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href=https://ibb.co/T2XQD5x><img class="card-img-top" src="https://i.ibb.co/2h2z0B1/Whats-App-Image-2023-01-05-at-11-14-56-PM.jpg" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                    <div class="small text-muted">January 23, 2022</div>
+                                    <h2 class="card-title h4">House Break in</h2>
+                                    <p class="card-text">Two Burglar try enter a home at Bayu Tiara Apartments</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
