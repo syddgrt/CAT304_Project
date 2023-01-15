@@ -30,16 +30,16 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                        <div class="p-5">
+                    <div class="p-3">
 
                         @yield('content')
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+
+    
 
     <!-- Bootstrap core JavaScript-->
     <script src="template/vendor/jquery/jquery.min.js"></script>
