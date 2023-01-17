@@ -21,7 +21,7 @@
 
     <body>
        <!-- Navigation-->
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+       <<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
                 <a class="navbar-brand" href="/home">ReportTruzz</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -90,7 +90,7 @@
                         <a href="https://ibb.co/7SJ3Jst"><img class="card-img-top" src="https://i.ibb.co/51WQWbh/myvi.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
-                            <h2 class="card-title">Myvi King of the Road</h2>
+                            <h2 class="card-title">Myvi King of the fucking Road</h2>
                             <a class="btn btn-secondary" href="#!">Read more →</a>
                         </div>
                     </div>
