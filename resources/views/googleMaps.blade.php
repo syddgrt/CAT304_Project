@@ -234,23 +234,11 @@
 
         /* --------------------------- Initialize Markers --------------------------- */
         function saveMarkerInfo() {
-        var info = $("#marker-input").val();
-        var lat = marker.getLatLng().lat;
-        var lng = marker.getLatLng().lng;
-
-        $.ajax({
-            url: '/save-marker',
-            type: 'POST',
-            data: {
-            info: info,
-            lat: lat,
-            lng: lng
-        },
-            success: function(response) {
-            console.log(response);
-         }
-         });
-        }
+             var form = document.getElementById("marker-form");
+             var input = document.getElementById("marker-input");
+             var info = input.value;
+             form.innerHTML = "Saved info: " + info;
+        }   
         
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
