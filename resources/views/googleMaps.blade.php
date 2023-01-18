@@ -177,6 +177,22 @@
         }
   
         window.initMap = initMap;
+        //bila lepas drag dia akan save dalam database
+        marker.on('dragend', function(event) {
+    var latLng = event.target.getLatLng();
+    var lat = latLng.lat;
+    var lng = latLng.lng;
+    // Use the Fetch API or XMLHttpRequest to send a POST request to a server-side script
+    fetch('/saveMarker', {
+        method: 'POST',
+        body: JSON.stringify({lat: lat, lng: lng}),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(function(response) {
+        // Handle the server's response here
+    });
+});
+
     </script>
             
         </section>
