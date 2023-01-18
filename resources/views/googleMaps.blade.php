@@ -68,7 +68,7 @@
 
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
-            const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
+            const initialMarkers = ; ?>;
 
             for (let index = 0; index < initialMarkers.length; index++) {
 
@@ -232,7 +232,7 @@
 
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
+                marker.addTo(map).bindPopup(`<center><b>${data.position.tit}</b></center>`);
                 map.panTo(data.position);
                 markers.push(marker)
             }

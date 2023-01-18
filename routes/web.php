@@ -37,4 +37,5 @@ Route::view('main', 'main')
 	->middleware(['auth', 'verified']);
 
 
-Route::get('/googleMaps', [MapController::class, 'index']);
+// Route::get('/googleMaps', [MapController::class, 'show']);
+Route::get('/googleMaps', [MapController::class, 'show']);
