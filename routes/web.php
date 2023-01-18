@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MyviController;
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,13 @@ Route::get('/create', function () {
     return view('create');
 });
 
-Route::get('/googleMaps', [GoogleController::class, 'index']);
+// Route::get('/googleMaps', [GoogleController::class, 'index']);
 
 Route::get('/myvi', [MyviController::class, 'index']);
 
 Route::view('main', 'main')
 	->name('main')
 	->middleware(['auth', 'verified']);
+
+
+Route::get('/googleMaps', [MapController::class, 'index']);
