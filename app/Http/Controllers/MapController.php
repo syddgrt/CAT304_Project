@@ -15,7 +15,7 @@ class MapController extends Controller
         $markers = Marker::all();
 
         
-        $rows = DB::table('markers')->select('latitude','longitude','title')->get();
+        $rows = DB::table('markers')->select('latitude','longitude','title','id')->get();
          
         $initialMarkers = [];
         foreach ($rows as $object){
@@ -26,40 +26,43 @@ class MapController extends Controller
            'position' => [
                 'lng' => $object->longitude,
                 'lat' => $object->latitude,
-                'tit' => $object ->title
+                'tit' => $object ->title,
+                'id' => $object -> id
            ],
-           'draggable' => true
+           'draggable' => false
            
            ];
            
-         
-
-        //     [
-        //         'position' => [
-        //             'lat' => 5.357433,
-        //             'lng' => 100.303032
-        //         ],
-        //         'draggable' => true
-        //     ],
-        //     [
-        //         'position' => [
-        //             'lat' => 5.29437,
-        //             'lng' => 100.25645
-        //         ],
-        //         'draggable' => false
-        //     ],
-        //     [
-        //         'position' => [
-        //             'lat' => 5.333285,
-        //             'lng' => 100.306838
-        //         ]
-            
-        //     ]
-            
-            
-        // ];
+        
         }
       
         return view('googleMaps', ['initialMarkers'=>$initialMarkers]);
     }
+
+
+    public function imageForm()
+    { 
+    
+        
+        return view('cmarker');
+    }
+    
+
+        public function store(Request $request)
+    {
+        $student = new Marker;
+        $student->title = $request->input('title');
+        $student->latitude = $request->input('latitude');
+        $student->longitude = $request->input('longitude');
+
+        
+   
+        $student->save();
+        return redirect()->back()->with('message','Marker Created Successfully');
+    }
+    
 }
+
+
+
+

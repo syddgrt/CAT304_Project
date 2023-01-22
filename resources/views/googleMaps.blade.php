@@ -131,20 +131,19 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
-        <div class="container mt-5">
+        <div class="container-fluid">
         <h2>ReporTruzz map</h2>
         <div id="map"></div>
         <h1 class='text-center'>Laravel Leaflet Maps</h1>
+        <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Marker</a></h2>
     <div id='map'></div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
     <script src='https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js'></script>
 
     <script>
-
         const geocoder = L.Control.Geocoder.nominatim();
         let map, markers = [];
-
         /* ----------------------------- Initialize Map ----------------------------- */
         function initMap() {
             
@@ -155,12 +154,9 @@
                 },
                 zoom: 15
             });
-
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap'
             }).addTo(map);
-
-
     
             map.on('click', mapClicked);
             initMarkers();
@@ -173,30 +169,33 @@
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
-
             for (let index = 0; index < initialMarkers.length; index++) {
-
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<center><b>${data.position.tit}</b></center>`);
+                marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
                 map.panTo(data.position);
                 markers.push(marker)
                 
             }
         }
  
-
         function generateMarker(data, index) {
             return L.marker([data.position.lat, data.position.lng], {
-                    draggable: data.draggable
+                    draggable: data.draggable,
+        
+                }) .on('click', function(e) {
+                    console.log('marker clicked');
+                 
+                    location.href = '/marker/'+data.position.id;
                 })
+
+                
                 .on('mouseover', (event) => markerHovered(event, index))
                 .on('mouseout', (event) => markerOut(event, index))
                 .on('dragend', (event) => markerDragEnd(event, index));
              
                 
         }
-
         /* ------------------------- Handle Map Click Event ------------------------- */
         function mapClicked($event) {
             console.log(map);
@@ -205,27 +204,21 @@
      
         }
 
+
+
         /* ------------------------ Handle Marker Click Event ----------------------- */
         function markerHovered($event, index) {
     $event.target.openPopup();
 }
-
-
-
         /* ------------------------ Hovered Marker Click Event ----------------------- */
         function markerOut($event, index) {
         $event.target.closePopup();
         }
-
-
-
         /* ----------------------- Handle Marker DragEnd Event ---------------------- */
         function markerDragEnd($event, index) {
             console.log(map);
             console.log($event.target.getLatLng());
         }
-
-
         /* ----------------------- Handle Marker reverse geocoding ---------------------- */
         function reverseGeo($event) {
         geocoder.reverse([$event.latlng.lat, $event.latlng.lng], map.options.crs.scale(map.getZoom()), function(results) {
@@ -236,12 +229,10 @@
         }
 
 
-
    
-
     </script>
     </div>
-  
+   
    
     </body>
 </html>
