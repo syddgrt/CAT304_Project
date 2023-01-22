@@ -26,6 +26,7 @@
     </head>
 
     <head>
+    
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
@@ -37,76 +38,10 @@
             height: 400px;
         }
     </style>
-    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css' crossorigin='' />
+    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css' crossorigin='' />
 </head>
 
-<!-- <body> -->
-    <!-- <h1 class='text-center'>Laravel Leaflet Maps</h1>
-    <div id='map'></div>
 
-    <script src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js' crossorigin=''></script>
-    <script>
-        let map, markers = [];
-        /* ----------------------------- Initialize Map ----------------------------- */
-        function initMap() {
-            map = L.map('map', {
-                center: {
-                    lat: 28.626137,
-                    lng: 79.821603,
-                },
-                zoom: 15
-            });
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-
-            map.on('click', mapClicked);
-            initMarkers();
-        }
-        initMap();
-
-        /* --------------------------- Initialize Markers --------------------------- */
-        function initMarkers() {
-            const initialMarkers = ; ?>;
-
-            for (let index = 0; index < initialMarkers.length; index++) {
-
-                const data = initialMarkers[index];
-                const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
-                map.panTo(data.position);
-                markers.push(marker)
-            }
-        }
-
-        function generateMarker(data, index) {
-            return L.marker(data.position, {
-                    draggable: data.draggable
-                })
-                .on('click', (event) => markerClicked(event, index))
-                .on('dragend', (event) => markerDragEnd(event, index));
-        }
-
-        /* ------------------------- Handle Map Click Event ------------------------- */
-        function mapClicked($event) {
-            console.log(map);
-            console.log($event.latlng.lat, $event.latlng.lng);
-        }
-
-        /* ------------------------ Handle Marker Click Event ----------------------- */
-        function markerClicked($event, index) {
-            console.log(map);
-            console.log($event.latlng.lat, $event.latlng.lng);
-        }
-
-        /* ----------------------- Handle Marker DragEnd Event ---------------------- */
-        function markerDragEnd($event, index) {
-            console.log(map);
-            console.log($event.target.getLatLng());
-        }
-    </script> -->
-<!-- </body> -->
 
 
 
@@ -202,11 +137,17 @@
         <h1 class='text-center'>Laravel Leaflet Maps</h1>
     <div id='map'></div>
 
-    <script src='https://unpkg.com/leaflet@1.8.0/dist/leaflet.js' crossorigin=''></script>
+    <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
+    <script src='https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js'></script>
+
     <script>
+
+        const geocoder = L.Control.Geocoder.nominatim();
         let map, markers = [];
+
         /* ----------------------------- Initialize Map ----------------------------- */
         function initMap() {
+            
             map = L.map('map', {
                 center: {
                     lat: 5.425300,
@@ -219,11 +160,16 @@
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
+
+    
             map.on('click', mapClicked);
             initMarkers();
+        
+            
+        
         }
         initMap();
-
+     
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
@@ -235,34 +181,64 @@
                 marker.addTo(map).bindPopup(`<center><b>${data.position.tit}</b></center>`);
                 map.panTo(data.position);
                 markers.push(marker)
+                
             }
         }
+ 
 
         function generateMarker(data, index) {
-            return L.marker(data.position, {
+            return L.marker([data.position.lat, data.position.lng], {
                     draggable: data.draggable
                 })
-                .on('click', (event) => markerClicked(event, index))
+                .on('mouseover', (event) => markerHovered(event, index))
+                .on('mouseout', (event) => markerOut(event, index))
                 .on('dragend', (event) => markerDragEnd(event, index));
+             
+                
         }
 
         /* ------------------------- Handle Map Click Event ------------------------- */
         function mapClicked($event) {
             console.log(map);
             console.log($event.latlng.lat, $event.latlng.lng);
+       
+     
         }
 
         /* ------------------------ Handle Marker Click Event ----------------------- */
-        function markerClicked($event, index) {
-            console.log(map);
-            console.log($event.latlng.lat, $event.latlng.lng);
+        function markerHovered($event, index) {
+    $event.target.openPopup();
+}
+
+
+
+        /* ------------------------ Hovered Marker Click Event ----------------------- */
+        function markerOut($event, index) {
+        $event.target.closePopup();
         }
+
+
 
         /* ----------------------- Handle Marker DragEnd Event ---------------------- */
         function markerDragEnd($event, index) {
             console.log(map);
             console.log($event.target.getLatLng());
         }
+
+
+        /* ----------------------- Handle Marker reverse geocoding ---------------------- */
+        function reverseGeo($event) {
+        geocoder.reverse([$event.latlng.lat, $event.latlng.lng], map.options.crs.scale(map.getZoom()), function(results) {
+        const locationName = results[0].name;
+        const marker = L.marker($event.latlng).addTo(map);
+        marker.bindPopup(locationName);
+    });
+        }
+
+
+
+   
+
     </script>
     </div>
   

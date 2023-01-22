@@ -27,8 +27,11 @@ class MapController extends Controller
                 'lng' => $object->longitude,
                 'lat' => $object->latitude,
                 'tit' => $object ->title
-           ]
+           ],
+           'draggable' => true
+           
            ];
+           
          
 
         //     [
