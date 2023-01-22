@@ -26,17 +26,37 @@
     </head>
 <style>
 a.btn-lg {
-  padding: 200px 400px;
-  font-size: 30px}
+  padding: 100px 400px;
+  font-size: 50px}
   a.rainbow-3:hover{
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
-  animation:slidebg 0.1s linear infinite;}
+  animation:slidebg 1s linear infinite;}
 
   @keyframes slidebg {
   to {
     background-position:20vw;
+
+  }
+  
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
+
+a.btn-diamond {
+  animation: rotate 1s linear infinite;
+}
+a.btn-diamond:hover {
+  animation: rotate 1s linear infinite; background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+  animation-play-state:running;
+}
+
+
 
 
 </style>
@@ -77,12 +97,11 @@ a.btn-lg {
                         <li class="nav-item font-weight-bolder"><a class="nav-link" href="/home">Home</a></li>
                         <li class="nav-item font-weight-bolder"><a class="nav-link" href="/googleMaps">Maps</a></li>
 
-                        <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit">
-                            {{ __('Logout') }}
-                        </button>
-                        </form>
+                       
+                    <h2><a href="{{ url('/logout') }}" class="rainbow-3 btn btn-outline-primary   mx-auto">Logout</a></h2>
+                          
+                        
+                        
                     </ul>
                 </div>
             </div>
@@ -151,7 +170,7 @@ a.btn-lg {
         <div id="map" style='height:95vh;width:100%;'></div>
         <h1 class='text-center alert-primary'>Laravel Leaflet Maps</h1>
        <div class="text-center">
-         <h2><a href="{{ url('/cmarker') }}" class="rainbow-3 btn btn-primary btn-lg   mx-auto">Create Marker</a></h2>
+         <h2><a href="{{ url('/cmarker') }}" class=" btn btn-outline-primary btn-lg btn-diamond rainbow-3  mx-auto">Create Marker</a></h2>
         </div>
     <div id='map'></div>
 
