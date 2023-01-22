@@ -24,7 +24,22 @@
         }
     </style> -->
     </head>
+<style>
+a.btn-lg {
+  padding: 200px 400px;
+  font-size: 30px}
+  a.rainbow-3:hover{
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+  animation:slidebg 0.1s linear infinite;}
 
+  @keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+
+
+</style>
     <head>
     
     <meta charset='utf-8'>
@@ -75,7 +90,7 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">ReportTruzz</h1>
+                <h1 class="fw-bolder text-center">ReportTruzz</h1>
                 <p class="lead">Report teruih pa bozz</p>
             </div>
         </header>
@@ -83,7 +98,7 @@
         <section class = "bg-light" id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 text-center">
                         <h2>ReportTruzz</h2>
                         <p class="lead"></p>
                         <ul>
@@ -131,11 +146,13 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
-        <div class="container-fluid">
+        <div class="container-fluid ">
         <h2>ReporTruzz map</h2>
-        <div id="map"></div>
-        <h1 class='text-center'>Laravel Leaflet Maps</h1>
-        <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Marker</a></h2>
+        <div id="map" style='height:95vh;width:100%;'></div>
+        <h1 class='text-center alert-primary'>Laravel Leaflet Maps</h1>
+       <div class="text-center">
+         <h2><a href="{{ url('/cmarker') }}" class="rainbow-3 btn btn-primary btn-lg   mx-auto">Create Marker</a></h2>
+        </div>
     <div id='map'></div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
@@ -172,7 +189,7 @@
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
+                marker.addTo(map).bindPopup(`<center><b>${data.position.tit}</b></center>`);
                 map.panTo(data.position);
                 markers.push(marker)
                 
@@ -235,6 +252,7 @@
    
    
     </body>
+ 
 </html>
 
 @endsection
