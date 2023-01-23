@@ -133,8 +133,7 @@
 
         <div class="container-fluid">
         <h2>ReporTruzz map</h2>
-        <div id="map"></div>
-        <h1 class='text-center'>Laravel Leaflet Maps</h1>
+        <div id='map' style='height: 95vh; width: 100%;'></div>
         <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Marker</a></h2>
     <div id='map'></div>
 

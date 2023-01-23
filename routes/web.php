@@ -5,6 +5,8 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MyviController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\FoodController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +61,24 @@ Route::post('cmarker', [ MapController::class, 'store' ] );
 Route::get('edit/{id}', [FoodController::class, 'edit']);
 Route::put('update/{id}', [FoodController::class, 'update']);
 Route::get('delete/{id}', [FoodController::class, 'destroy']);
+
+
+
+/* Route to display notice that user should verify email first before can proceed*/
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+/* Route to handle requests generated when the user clicks the email verification link in the email*/
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/main');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+/* Route when user request to resend a verification link if the user accidentally loses the first verification link*/
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
