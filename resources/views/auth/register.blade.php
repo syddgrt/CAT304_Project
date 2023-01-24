@@ -54,7 +54,7 @@
         <p class="text-center small">Enter your personal details to create account</p>
         </div>
 
-        <form class="row g-3 needs-validation" method="POST" action="{{ route('register') }}" novalidate>
+        <form class="row g-3 needs-validation" method="POST" action="{{ route('register') }}" validate>
             @csrf
 
             <div class="col-12">
@@ -62,6 +62,13 @@
                 <input type="text" name="name" class="form-control" value="{{ old('name') }}" required autofocus autocomplete="name">
                 <div class="invalid-feedback">Please, enter your name!</div>
             </div>
+
+            <div class="col-12">
+                <label for="yourPhone" class="form-label">Your Phone</label>
+                <input type="text" name="phone" class="form-control" value="{{ old('phone') }}" required >
+                <div class="invalid-feedback">Please, enter your Phone Number!!!!</div>
+            </div>
+            
 
             <div class="col-12">
                 <label for="yourEmail" class="form-label">Your Email</label>
@@ -99,6 +106,7 @@
             </div> -->
 
             <div class="col-12">
+                
                 <button class="btn btn-primary w-100" type="submit">Create Account</button>
             </div>
 

@@ -1,4 +1,4 @@
-@extends('layout.public')
+@extends('layout.private')
 @section('content')
 
 <div class="container">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="{{ url('/googleMaps') }}" class="btn btn-primary">Back</a>
+                            <a href="{{ url('/marker/'.$location->id) }}" class="btn btn-primary">Back</a>
 
                         </div>
 

@@ -167,11 +167,16 @@ a.btn-diamond:hover {
 
         <div class="container-fluid ">
         <h2>ReporTruzz map</h2>
+<<<<<<< HEAD
         <div id="map" style='height:95vh;width:100%;'></div>
         <h1 class='text-center alert-primary'>Laravel Leaflet Maps</h1>
        <div class="text-center">
          <h2><a href="{{ url('/cmarker') }}" class=" btn btn-outline-primary btn-lg btn-diamond rainbow-3  mx-auto">Create Marker</a></h2>
         </div>
+=======
+        <div id='map' style='height: 95vh; width: 100%;'></div>
+        <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Marker</a></h2>
+>>>>>>> 4d907baa5c1c2136f1cfbae6e79e5423163d3c18
     <div id='map'></div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
