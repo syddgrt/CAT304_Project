@@ -54,13 +54,17 @@ Route::get('cmarker', [MapController::class, 'imageForm']);
 
 Route::post('cmarker', [ MapController::class, 'store' ] );
 
-
+Route::get('mapmarker', [ MapController::class, 'markers' ] );
 
 
 
 Route::get('edit/{id}', [FoodController::class, 'edit']);
 Route::put('update/{id}', [FoodController::class, 'update']);
 Route::get('delete/{id}', [FoodController::class, 'destroy']);
+
+Route::get('editmarker/{id}', [MapController::class, 'edit']);
+Route::put('update/{id}', [MapController::class, 'update']);
+Route::get('delete/{id}', [MapController::class, 'destroy']);
 
 
 

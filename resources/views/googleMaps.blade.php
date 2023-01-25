@@ -134,7 +134,7 @@
         <div class="container-fluid">
         <h2>ReporTruzz map</h2>
         <div id='map' style='height: 95vh; width: 100%;'></div>
-        <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Marker</a></h2>
+        <h2><a href="{{ url('/mapmarker') }}" class="btn btn-primary">Manage Marker</a></h2>
     <div id='map'></div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
@@ -168,14 +168,17 @@
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
+            let bounds = new L.LatLngBounds();
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
                 marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
                 map.panTo(data.position);
+                bounds.extend(marker.getLatLng());
                 markers.push(marker)
                 
             }
+            map.fitBounds(bounds);
         }
  
         function generateMarker(data, index) {
