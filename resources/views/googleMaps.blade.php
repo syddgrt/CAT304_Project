@@ -167,11 +167,16 @@ a.btn-diamond:hover {
 
         <div class="container-fluid ">
         <h2>ReporTruzz map</h2>
+<<<<<<< HEAD
         <div id="map" style='height:95vh;width:100%;'></div>
         <h1 class='text-center alert-primary'>Laravel Leaflet Maps</h1>
        <div class="text-center">
          <h2><a href="{{ url('/cmarker') }}" class=" btn btn-outline-primary btn-lg btn-diamond rainbow-3  mx-auto">Create Marker</a></h2>
         </div>
+=======
+        <div id='map' style='height: 95vh; width: 100%;'></div>
+        <h2><a href="{{ url('/mapmarker') }}" class="btn btn-primary">Manage Marker</a></h2>
+>>>>>>> 9163554d01c1076cd89c559cc255c3944f548084
     <div id='map'></div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
@@ -205,14 +210,17 @@ a.btn-diamond:hover {
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
+            let bounds = new L.LatLngBounds();
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
                 marker.addTo(map).bindPopup(`<center><b>${data.position.tit}</b></center>`);
                 map.panTo(data.position);
+                bounds.extend(marker.getLatLng());
                 markers.push(marker)
                 
             }
+            map.fitBounds(bounds);
         }
  
         function generateMarker(data, index) {

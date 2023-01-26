@@ -60,6 +60,51 @@ class MapController extends Controller
         $student->save();
         return redirect()->back()->with('message','Marker Created Successfully');
     }
+
+
+    public function markers(){
+        $markering = Marker::all();
+        return view('mapmarker', compact('markering'));
+    }
+
+
+    
+    public function edit($id)
+    {
+        $student = Marker::find($id);
+       
+        return view('editmarker',compact('student'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $student = Marker::find($id);
+        $student->title = $request->input('title');
+        $student->latitude = $request->input('latitude');
+        $student->longitude = $request->input('longitude');
+    
+        
+
+
+        $student->update();
+        session()->flash('status','Marker Updated Successfully');
+        return redirect()->back();
+
+
+    }
+
+
+    public function destroy($id)
+    {
+        $student = Marker::find($id);
+    
+        $student->delete();
+        session()->flash('status','Marker Deleted Successfully');
+        return redirect()->back();
+    }
+
+
     
 }
 

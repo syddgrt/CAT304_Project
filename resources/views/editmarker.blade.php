@@ -11,17 +11,17 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Create Marker</h4>
+                    <h4>Update Marker</h4>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ url('cmarker') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('update/'.$student->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
+                        @method('PUT')
 
                         <div class="mb-5">
                             <label for="">Title</label>
-                            <input type="text" name="title" required class="form-control">
+                            <input type="text" name="title" value="{{$student->title}}" required class="form-control">
                         </div>
 
                         <div id="map" style="height: 400px"></div>
@@ -107,15 +107,15 @@
 
                         <div class="mb-5">
                            
-                            <input type="hidden" name="longitude" value="">
+                            <input type="hidden" name="longitude" value="{{$student->longitude}}">
                         </div>
 
                         <div class="mb-5">
                             
-                            <input type="hidden" name="latitude" value="">
+                            <input type="hidden" name="latitude" value="{{$student->latitude}}">
                         </div> 
                         <div class="mb-5">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                         <a href="{{ url('/mapmarker') }}" class="btn btn-primary">Back</a>
 
@@ -130,9 +130,11 @@
 
 
 
-@if(session()->has('message'))
+@if(session()->has('status'))
     <div class="alert alert-success">
-        {{ session()->get('message') }}
+        {{ session()->get('status') }}
     </div>
 @endif
+
+
 @endsection
