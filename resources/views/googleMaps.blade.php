@@ -24,42 +24,7 @@
         }
     </style> -->
     </head>
-<style>
-a.btn-lg {
-  padding: 100px 400px;
-  font-size: 50px}
-  a.rainbow-3:hover{
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
-  animation:slidebg 1s linear infinite;}
 
-  @keyframes slidebg {
-  to {
-    background-position:20vw;
-
-  }
-  
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-a.btn-diamond {
-  animation: rotate 1s linear infinite;
-}
-a.btn-diamond:hover {
-  animation: rotate 1s linear infinite; background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
-  animation-play-state:running;
-}
-
-
-
-
-</style>
     <head>
     
     <meta charset='utf-8'>
@@ -86,22 +51,23 @@ a.btn-diamond:hover {
         <div>{{ session('status') }}</div>
     @endif
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand font-weight-bolder col-8" href="/main">ReportTruzz</a>
+                <a class="navbar-brand" href="/main">ReportTruzz</a>
                 <a class="navbar-brand">{{ Auth::user()->name }}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/main">About</a></li>
-                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/home">Home</a></li>
-                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/googleMaps">Maps</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/main">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/googleMaps">Maps</a></li>
 
-                       
-                    <h2><a href="{{ url('/logout') }}" class="rainbow-3 btn btn-outline-primary   mx-auto">Logout</a></h2>
-                          
-                        
-                        
+                        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit">
+                            {{ __('Logout') }}
+                        </button>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -109,7 +75,7 @@ a.btn-diamond:hover {
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder text-center">ReportTruzz</h1>
+                <h1 class="fw-bolder">ReportTruzz</h1>
                 <p class="lead">Report teruih pa bozz</p>
             </div>
         </header>
@@ -117,7 +83,7 @@ a.btn-diamond:hover {
         <section class = "bg-light" id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8 text-center">
+                    <div class="col-lg-8">
                         <h2>ReportTruzz</h2>
                         <p class="lead"></p>
                         <ul>
@@ -165,18 +131,10 @@ a.btn-diamond:hover {
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
-        <div class="container-fluid ">
+        <div class="container-fluid">
         <h2>ReporTruzz map</h2>
-<<<<<<< HEAD
-        <div id="map" style='height:95vh;width:100%;'></div>
-        <h1 class='text-center alert-primary'>Laravel Leaflet Maps</h1>
-       <div class="text-center">
-         <h2><a href="{{ url('/cmarker') }}" class=" btn btn-outline-primary btn-lg btn-diamond rainbow-3  mx-auto">Create Marker</a></h2>
-        </div>
-=======
         <div id='map' style='height: 95vh; width: 100%;'></div>
-        <h2><a href="{{ url('/mapmarker') }}" class="btn btn-primary">Manage Marker</a></h2>
->>>>>>> 9163554d01c1076cd89c559cc255c3944f548084
+        <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Report</a></h2>
     <div id='map'></div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
@@ -210,17 +168,14 @@ a.btn-diamond:hover {
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
-            let bounds = new L.LatLngBounds();
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<center><b>${data.position.tit}</b></center>`);
+                marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
                 map.panTo(data.position);
-                bounds.extend(marker.getLatLng());
                 markers.push(marker)
                 
             }
-            map.fitBounds(bounds);
         }
  
         function generateMarker(data, index) {
@@ -279,7 +234,6 @@ a.btn-diamond:hover {
    
    
     </body>
- 
 </html>
 
 @endsection

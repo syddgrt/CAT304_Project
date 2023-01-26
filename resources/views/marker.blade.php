@@ -21,9 +21,13 @@
             <h4 class="card-title">{{ $food->food_name }}</h4>
             <!-- <p class="card-text">{{ $food->food_description }}</p> -->
             <p class="card-text">Category: {{ $food->category?->name}}</p>
+            <p class="card-text">Email: {{ $email->user?->email}}</p>
         
             <!-- <p class="card-text">Best Before: {{ $food->best_before }}</p>
             <p class="card-text">User email: {{ $food->user_email }}</p> -->
+
+            
+            @if(Auth::id() == $food->user_id)
 
              <p>
                 <a href="{{ url('edit/'.$food->id) }}" class="btn btn-primary btn-sm">Edit</a>
@@ -31,6 +35,7 @@
 
         
            </p> 
+           @endif
             
         </div>
     </div>

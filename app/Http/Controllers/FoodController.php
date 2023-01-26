@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Marker;
 use Illuminate\Http\Response;
@@ -14,8 +15,10 @@ class FoodController extends Controller
 {
     public function marker($id){
         $student = Marker::find($id);
+        // $food = Food::with('user')->find($id);
         $foods = Food::where('location_id', $id)->with('category')->get();
-        return view('marker', compact('foods','student'));
+        $email = Food::where('user_id', $id)->with('user')->first();
+        return view('marker', compact('foods','student', 'email'));
     }
 
     
@@ -25,7 +28,8 @@ class FoodController extends Controller
 { 
     $category = Category::all();
     $location = Marker::find($id);
-    return view('image', compact('category','location'));
+    $user = User::find($id);
+    return view('image', compact('category','location','user'));
 }
 
 
@@ -37,7 +41,7 @@ class FoodController extends Controller
         $student->location_id = $request->input('location_id');
         $student->best_before = $request->input('best_before');
         $student->food_description = $request->input('food_description');
-        $student->user_email = $request->input('user_email');
+        $student->user_id = $request->input('user_id');
 
 
         
