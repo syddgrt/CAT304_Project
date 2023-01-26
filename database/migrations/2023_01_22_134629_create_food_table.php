@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('location_id');
             $table->date('best_before');
             $table->longText('food_description');
-            $table->string('user_email');
+    
             $table->timestamps();
         });
     }

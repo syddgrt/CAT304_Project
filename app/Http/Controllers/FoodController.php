@@ -10,15 +10,17 @@ use App\Models\Marker;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+
 
 class FoodController extends Controller
 {
     public function marker($id){
         $student = Marker::find($id);
         // $food = Food::with('user')->find($id);
-        $foods = Food::where('location_id', $id)->with('category')->get();
-        $email = Food::where('user_id', $id)->with('user')->first();
-        return view('marker', compact('foods','student', 'email'));
+    $foods = Food::where('location_id', $id)->with('category','user')->get();
+
+        return view('marker', compact('foods','student'));
     }
 
     
@@ -26,10 +28,12 @@ class FoodController extends Controller
 
     public function imageForm($id)
 { 
+
     $category = Category::all();
     $location = Marker::find($id);
-    $user = User::find($id);
-    return view('image', compact('category','location','user'));
+    
+ $current_user_id = Auth::id();
+return view('image', compact('category','location','current_user_id'));
 }
 
 
@@ -42,6 +46,7 @@ class FoodController extends Controller
         $student->best_before = $request->input('best_before');
         $student->food_description = $request->input('food_description');
         $student->user_id = $request->input('user_id');
+       
 
 
         
@@ -77,7 +82,7 @@ class FoodController extends Controller
         $student->location_id = $request->input('location_id');
         $student->best_before = $request->input('best_before');
         $student->food_description = $request->input('food_description');
-        $student->user_email = $request->input('user_email');
+       
         
 
         if($request->hasfile('image'))

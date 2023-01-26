@@ -13,6 +13,7 @@
 
                     <form action="{{ url('image/'.$location->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                      
 
                         <div class="mb-3">
                             <label for="">Food Name</label>
@@ -38,14 +39,12 @@
                             <input type="text" name="food_description" required class="form-control">
                         </div>
 
-                        <div class="mb-3">
-                            
-                            <input type="hidden" name="email"  value="{{ $user->email }}" required class="form-control">
-                        </div>
+                        
 
                           <div class="mb-3">
                             
-                            <input type="hidden" name="user_id" value="{{ $user->id }}" required class="form-control">
+                           <input type="hidden" name="user_id" value="{{ $current_user_id }}">
+
                         </div>
 
                         <div class="mb-3">
