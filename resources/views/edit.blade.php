@@ -41,7 +41,7 @@
 
                         <div class="mb-3">
                             <label for="">Email</label>
-                            <input type="text" name="user_email" value="{{$student->user_email}}" required class="form-control">
+                            <input type="text" name="" value="" required class="form-control">
                         </div>
 
                         <div class="mb-3" style="margin-bottom: 20px;">

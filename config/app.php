@@ -17,6 +17,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -30,6 +32,7 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -42,6 +45,7 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -153,6 +157,7 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+  
 
     'providers' => [
 
@@ -213,5 +218,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+
+  
+    
 
 ];
