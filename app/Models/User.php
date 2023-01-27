@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Marker;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -44,7 +45,9 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     
      public function foods(){
-        return $this->hasMany(Food::class);
+        return $this->hasMany(Marker::class);
     }
+
+    
 
 }

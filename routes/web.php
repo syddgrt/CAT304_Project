@@ -49,7 +49,7 @@ Route::view('main', 'main')
 // Route::get('/googleMaps', [MapController::class, 'show']);
 Route::get('/googleMaps', [MapController::class, 'show']);
 
-Route::get('/marker/{id}', [ FoodController::class, 'marker' ] );
+Route::get('/marker/{id}', [MapController::class, 'marker' ] );
 
 Route::get('/image/{id}', [FoodController::class, 'imageForm']);
 
