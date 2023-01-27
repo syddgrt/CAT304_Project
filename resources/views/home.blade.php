@@ -100,7 +100,9 @@
                             </div>
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="https://ibb.co/28TRDYT"><img class="card-img-top"  src="https://i.ibb.co/f8sZhGs/Whats-App-Image-2023-01-06-at-1-32-32-AM.jpg" alt="..." /></a>
+                                <a href="https://ibb.c
+                                
+                                o/28TRDYT"><img class="card-img-top"  src="https://i.ibb.co/f8sZhGs/Whats-App-Image-2023-01-06-at-1-32-32-AM.jpg" alt="..." /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">August 19, 2022</div>
                                     <h2 class="card-title h4">Abandoned Ferry ruined scenery</h2>

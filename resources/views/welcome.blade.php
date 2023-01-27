@@ -25,6 +25,7 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
+        @yield('content')
 
         <div class="card o-hidden border-4 shadow-lg my-5 ">
             <div class="card-body p-0">

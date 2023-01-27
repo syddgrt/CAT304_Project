@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MyviController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,21 @@ Route::get('/myvi', [MyviController::class, 'index']);
 Route::view('main', 'main')
 	->name('main')
 	->middleware(['auth', 'verified']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+    
+Route::get('/user', [ReportController::class, 'index'])->name('index');
+
+Route::get('/create', [ReportController::class, 'create'])->name('create');
+
+Route::post('store/', [ReportController::class,'store'])->name('store');
+
+Route::get('show/{report}', [ReportController::class, 'show'])->name('show');
+
+Route::get('edit/{report}', [ReportController::class, 'edit'])->name('edit');
+
+Route::put('edit/{report}', [ReportController::class, 'update'])->name('update');
+
+Route::delete('/{report}', [ReportController::class, 'destroy'])->name('destroy');
