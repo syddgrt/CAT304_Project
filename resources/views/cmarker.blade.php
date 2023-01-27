@@ -23,7 +23,27 @@
                             <label for="">Title</label>
                             <input type="text" name="title" required class="form-control">
                         </div>
+                        <div class="mb-3">
+                            <label for="">Category</label>
+                            <select name="category_id" required class="form-control">
+                                @foreach($category as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Description</label>
+                            <input type="text" name="description" required class="form-control">
+                        </div>
+                          <div class="mb-3">
+                            
+                           <input type="hidden" name="user_id" value="{{ $current_user_id }}">
 
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="">Upload Image</label>
+                            <input type="file" name="image" required class="course form-control">
                         <div id="map" style="height: 400px"></div>
 
                         <script>

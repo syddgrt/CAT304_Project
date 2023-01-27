@@ -19,7 +19,6 @@
         <h4><img src="{{ asset('public/storage/image/'.$food->image) }}" width="300" height="300"></h4> 
         
             <h4 class="card-title">{{ $food->food_name }}</h4>
-            <!-- <p class="card-text">{{ $food->food_description }}</p> -->
             <p class="card-text">Category: {{ $food->category?->name}}</p>
             <p class="card-text">Email: {{ $food->user?->email}}</p>
         
