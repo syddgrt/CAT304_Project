@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Marker;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class MapController extends Controller
 {
@@ -44,7 +46,10 @@ class MapController extends Controller
     { 
     
         
-        return view('cmarker');
+        $category = Category::all();
+    
+        $current_user_id = Auth::id();
+        return view('cmarker', compact('category','current_user_id'));
     }
     
 
@@ -54,6 +59,21 @@ class MapController extends Controller
         $student->title = $request->input('title');
         $student->latitude = $request->input('latitude');
         $student->longitude = $request->input('longitude');
+        $student->category_id = $request->input('category_id');
+        $student->description = $request->input('description');
+        $student->user_id = $request->input('user_id');
+
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('public/storage/image/', $filename);
+            $student->image = $filename;
+        }
+
+        $student->save();
+        return redirect()->back()->with('message','Image Upload Successfully');
 
         
    
