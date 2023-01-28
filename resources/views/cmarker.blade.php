@@ -1,4 +1,5 @@
 @extends('layout.private')
+
 @section('content')
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmb+SdPTAMbQEq3Yg5ijJ1rGkJcGpLlZS8gZAzA==" crossorigin=""/>

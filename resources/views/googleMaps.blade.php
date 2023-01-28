@@ -1,5 +1,5 @@
-<!-- @extends('layout.public')  -->
-@include ('navbar')
+@extends('layout.private') 
+@include('navbar')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -18,13 +18,16 @@
     <title>Google</title>
     <!-- <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_Advm7EKTGcSxdYsa2YtsLfOFDddg3UU&callback=initMap">
-</script>
+</script> -->
     <style type="text/css">
-        #map {
-          height: 400px;
-        }
-    </style> -->
+        .bg-gradient-primary {
+    background-color: #4e73df;
+    background-image: linear-gradient(180deg,#5c86fe 10%,#ffffff 100%);
+    background-size: cover;
+}
+    </style> 
     </head>
+    
 
     <head>
     
@@ -35,9 +38,31 @@
             text-align: center;
         }
         #map {
-            width: '100%';
-            height: 400px;
-        }
+            
+             position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            }
+
+            .create-btn{
+                 position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+            }
+
+                .leaflet-control-zoom {
+            /* styles */
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                }
+        
     </style>
     <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css' crossorigin='' />
 </head>
@@ -54,27 +79,27 @@
 
        
         <!-- Header-->
-        <header class="bg-primary bg-gradient text-white">
+        <!-- <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">ReportTruzz</h1>
                 <p class="lead">Report teruih pa bozz</p>
             </div>
-        </header>
+        </header> -->
         <!-- About section-->
-        <section class = "bg-light" id="about">
+        <!-- <section class = "bg-light" id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
                         <h2>ReportTruzz</h2>
                         <p class="lead"></p>
                         <ul>
-                            <li>ReporTruzz maps are implemented by using the famous and trusted Google Maps API by Google, designed and custom-coded to fit the requirements of software</li>
+                            <li></li>
                         </ul>
                         
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Services section-->
         <section class="bg-light" id="services">
            <script type="text/javascript">
@@ -112,11 +137,14 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
 
-        <div class="container-fluid">
-        <h2>ReporTruzz map</h2>
-        <div id='map' style='height: 95vh; width: 100%;'></div>
-        <h2><a href="{{ url('/cmarker') }}" class="btn btn-primary">Create Report</a></h2>
-    <div id='map'></div>
+        <div class="container-flex mt-xl-5 ">
+        
+        <!-- <div id='map' style='height: 95vh; width: 100%;'></div> -->
+        
+    <div id="map" style="width: 100%; height: 100%;"></div>
+    <div class="container align-self-center d-flex justify-content-center align-items-center">
+    <a href="{{ url('/cmarker') }}" class="btn btn-primary create-btn">Create Report</a>
+    </div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
     <script src='https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js'></script>
@@ -133,13 +161,27 @@
                     lng: 100.312386,
                 },
                 zoom: 15
-            });
+
+                
+            }
+            );
+            zoomControl: false, // disable the default zoom control
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap'
             }).addTo(map);
     
             map.on('click', mapClicked);
             initMarkers();
+
+ 
+            
+          
+
+            // add the custom zoom control to the bottom left corner
+            L.control.zoom({
+                position: 'bottomleft'
+            }).addTo(map);
+
         
             
         
@@ -152,7 +194,7 @@
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
+                marker.addTo(map).bindPopup(`<center><b>Report #${data.position.id}</b><br> ${data.position.tit}</center>`);
                 map.panTo(data.position);
                 markers.push(marker)
                 
