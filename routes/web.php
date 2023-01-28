@@ -33,6 +33,7 @@ Route::get('/create', function () {
     return view('create');
 });
 
+
 // Route::get('/googleMaps', [GoogleController::class, 'index']);
 
 Route::get('/myvi', [MyviController::class, 'index']);
