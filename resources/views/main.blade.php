@@ -1481,3 +1481,7 @@
         <script src="TemplateGP/assets/js/main.js"></script>
     </body>
 </html>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>

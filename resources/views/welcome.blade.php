@@ -80,10 +80,24 @@
     font-family: 'Poppins', sans-serif
 }
 	
-	body {
-		
-	background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
-	}
+body {
+  background: linear-gradient(to right, #000000, #434343, #000000);
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 
 .container {
