@@ -18,8 +18,7 @@ class FoodController extends Controller
     public function marker($id){
         $student = Marker::find($id);
         // $food = Food::with('user')->find($id);
-    $foods = Food::where('location_id', $id)->with('category','user')->get();
-
+        $foods = Food::where('location_id', $id)->with('category','user')->get();
         return view('marker', compact('foods','student'));
     }
 
