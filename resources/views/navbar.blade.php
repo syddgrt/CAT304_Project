@@ -66,7 +66,7 @@
                       
                    
                          <div class="container px-flex">
-                          <a class="navbar-brand font-weight-bolder col-flex" href="/main">ReportTruzz</a>
+                          <a class="navbar-brand font-weight-bolder col-flex" style=" font-size: 36px;"href="/main">ReportTruzz</a>
                         </div>         
                    
 

@@ -54,7 +54,12 @@
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
+        font-size: 20px;
+        padding: 10px 20px;
+        background: #00FF7F;
+        
             }
+            
 
                 .leaflet-control-zoom {
             /* styles */
@@ -143,7 +148,7 @@
         
     <div id="map" style="width: 100%; height: 100%;"></div>
     <div class="container align-self-center d-flex justify-content-center align-items-center">
-    <a href="{{ url('/cmarker') }}" class="btn btn-primary create-btn">Create Report</a>
+    <a href="{{ url('/cmarker') }}" class="btn btn-success create-btn">Create Report</a>
     </div>
 
     <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>

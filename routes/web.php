@@ -33,16 +33,16 @@ Route::get('/create', function () {
     return view('create');
 });
 
-<<<<<<< HEAD
+
 
 // Route::get('/googleMaps', [GoogleController::class, 'index']);
-=======
+
 Route::get('/adminMain', function () {
     return view('admin/adminMain');
 });
 
 Route::get('/googleMaps', [GoogleController::class, 'index']);
->>>>>>> 3a7081cf2827929d16e6f0111f22bcaae08bcbb5
+
 
 Route::get('/myvi', [MyviController::class, 'index']);
 
