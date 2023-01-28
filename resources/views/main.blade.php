@@ -40,6 +40,7 @@
                         <li class="nav-item font-weight-bolder"><a class="nav-link" href="/main">About</a></li>
                         <li class="nav-item font-weight-bolder"><a class="nav-link" href="/home">Home</a></li>
                         <li class="nav-item font-weight-bolder"><a class="nav-link" href="/googleMaps">Maps</a></li>
+                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/adminMain">admin page</a></li>
 
                         <form method="POST" action="{{ route('logout') }}">
                         @csrf

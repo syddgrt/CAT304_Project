@@ -171,7 +171,7 @@
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
+                marker.addTo(map).bindPopup(`<center><b>Report #${data.position.id}</b><br>${data.position.tit}</center>`);
                 map.panTo(data.position);
                 markers.push(marker)
                 

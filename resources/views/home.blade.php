@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
                             <h2 class="card-title">Myvi King of The Fucking Road Malaysia</h2>
-                            <a class="btn btn-primary" href="/myvi">Read more →</a>
+                            <!-- <a class="btn btn-primary" href="/myvi">Read more →</a> -->
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->

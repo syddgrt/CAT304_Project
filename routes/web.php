@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MyviController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\AdminController;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -33,13 +34,11 @@ Route::get('/create', function () {
     return view('create');
 });
 
-Route::get('/adminMain', function () {
-    return view('admin/adminMain');
-});
+
 
 Route::get('/googleMaps', [GoogleController::class, 'index']);
 
-Route::get('/myvi', [MyviController::class, 'index']);
+Route::get('/myvi', [MyviController::class, 'index','index2']);
 
 Route::view('main', 'main')
 	->name('main')
@@ -54,6 +53,8 @@ Route::get('/marker/{id}', [MapController::class, 'marker' ] );
 Route::get('/image/{id}', [FoodController::class, 'imageForm']);
 
 Route::post('/image/{id}', [ FoodController::class, 'store' ] );
+
+Route::get('/adminMain', [AdminController::class, 'index',]);
 
 
 Route::get('cmarker', [MapController::class, 'imageForm']);
@@ -94,6 +95,3 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('admin', [AdminController::class, 'index']);
-});
