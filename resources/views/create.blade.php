@@ -1,5 +1,5 @@
-<!-- @extends('layout.public')  -->
-<!-- @section('content') -->
+@extends('layout.public') 
+ @section('content')
 
 
 <!DOCTYPE html>

@@ -37,7 +37,17 @@ Route::get('/create', function () {
 
 
 
+// Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+
+
+// Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+
+
 Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+
 
 Route::get('/myvi', [MyviController::class, 'index','index2']);
 
