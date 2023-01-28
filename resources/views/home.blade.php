@@ -1,5 +1,9 @@
 @extends('layout.public')
+<<<<<<< HEAD
 
+=======
+@include('navbar')
+>>>>>>> d24f44f02ff6249993d460eb23356b0e444e5862
 @section('content')
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -12,27 +16,7 @@
         <div>{{ session('status') }}</div>
     @endif
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary fixed-top" id="mainNav">
-            <div class="container px-4">
-                <a class="navbar-brand font-weight-bolder col-8" href="/main">ReportTruzz</a>
-                <a class="navbar-brand">{{ Auth::user()->name }}</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/main">About</a></li>
-                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/home">Home</a></li>
-                        <li class="nav-item font-weight-bolder"><a class="nav-link" href="/googleMaps">Maps</a></li>
 
-                        <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit">
-                            {{ __('Logout') }}
-                        </button>
-                        </form>
-                    </ul>
-                </div>
-            </div>
-        </nav>
 <div class="card-columns">
     @foreach($markers as $marker)
     
