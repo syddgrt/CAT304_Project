@@ -22,7 +22,7 @@
             <p class="card-text">Category: {{ $food->category?->name}}</p>
             <p class="card-text">Details: {{ $food->description}}</p>
             <p class="card-text">Email: {{ $food->user?->email}}</p>
-        
+
             <!-- <p class="card-text">Best Before: {{ $food->best_before }}</p>-->
             
             
