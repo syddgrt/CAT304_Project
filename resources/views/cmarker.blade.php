@@ -12,15 +12,13 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Create Marker</h4>
+                    <h4>Create Report</h4>
                 </div>
                 <div class="card-body">
 
                     <form action="{{ url('cmarker') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-
-
-                        <div class="mb-5">
+                        <div class="mb-3">
                             <label for="">Title</label>
                             <input type="text" name="title" required class="form-control">
                         </div>
@@ -45,8 +43,8 @@
                         <div class="mb-3">
                             <label for="">Upload Image</label>
                             <input type="file" name="image" required class="course form-control">
-                        <div id="map" style="height: 400px"></div>
-
+                            <p> </P>
+                        <div class="mb-6" id="map" style="height: 400px"></div>
                         <script>
                             document.addEventListener("DOMContentLoaded", function() {
                             // Initialize the map
@@ -122,10 +120,6 @@
                         });
                         
                         </script>
-
-
-
-
                         <div class="mb-5">
                            
                             <input type="hidden" name="longitude" value="">
@@ -136,9 +130,10 @@
                             <input type="hidden" name="latitude" value="">
                         </div> 
                         <div class="mb-5">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                            <a href="{{ url('/googleMaps') }}" class="btn btn-primary">Back</a>
                         </div>
-                        <a href="{{ url('/mapmarker') }}" class="btn btn-primary">Back</a>
+                        
 
                     </form>
 

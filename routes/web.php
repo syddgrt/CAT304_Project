@@ -33,8 +33,16 @@ Route::get('/create', function () {
     return view('create');
 });
 
+<<<<<<< HEAD
 
 // Route::get('/googleMaps', [GoogleController::class, 'index']);
+=======
+Route::get('/adminMain', function () {
+    return view('admin/adminMain');
+});
+
+Route::get('/googleMaps', [GoogleController::class, 'index']);
+>>>>>>> 3a7081cf2827929d16e6f0111f22bcaae08bcbb5
 
 Route::get('/myvi', [MyviController::class, 'index']);
 
@@ -46,7 +54,7 @@ Route::view('main', 'main')
 // Route::get('/googleMaps', [MapController::class, 'show']);
 Route::get('/googleMaps', [MapController::class, 'show']);
 
-Route::get('/marker/{id}', [ FoodController::class, 'marker' ] );
+Route::get('/marker/{id}', [MapController::class, 'marker' ] );
 
 Route::get('/image/{id}', [FoodController::class, 'imageForm']);
 
@@ -63,7 +71,7 @@ Route::get('mapmarker', [ MapController::class, 'markers' ] );
 
 Route::get('edit/{id}', [FoodController::class, 'edit']);
 Route::put('update/{id}', [FoodController::class, 'update']);
-Route::get('deletes/{id}', [FoodController::class, 'destroy']);
+Route::get('deletes/{id}', [MapController::class, 'destroy']);
 
 Route::get('editmarker/{id}', [MapController::class, 'edit']);
 Route::put('update/{id}', [MapController::class, 'update']);
