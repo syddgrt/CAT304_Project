@@ -6,6 +6,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MyviController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -67,11 +68,13 @@ Route::get('mapmarker', [ MapController::class, 'markers' ] );
 
 Route::get('edit/{id}', [FoodController::class, 'edit']);
 Route::put('update/{id}', [FoodController::class, 'update']);
-Route::get('deletes/{id}', [FoodController::class, 'destroy']);
+Route::get('deletes/{id}', [MapController::class, 'destroy']);
 
 Route::get('editmarker/{id}', [MapController::class, 'edit']);
 Route::put('update/{id}', [MapController::class, 'update']);
 Route::get('delete/{id}', [MapController::class, 'destroy']);
+
+Route::get('home', [DashboardController::class, 'index']);
 
 
 

@@ -23,7 +23,22 @@
                             <label for="">Title</label>
                             <input type="text" name="title" value="{{$student->title}}" required class="form-control">
                         </div>
-
+                        <div class="mb-3">
+                            <label for="">Category</label>
+                            <select name="category_id" value="{{$student->category_id}}" required class="form-control">
+                                @foreach($category as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <div class="mb-3">
+                            <label for="">Description</label>
+                            <input type="text" name="description" value="{{$student->description}}" required class="form-control">
+                        </div>
+                        <div class="mb-3" style="margin-bottom: 20px;">
+                            <label for="">Upload Image</label>
+                            <input type="file" name="image" class="course form-control">
+                            <img src="{{ asset('public/storage/image/'.$student->image) }}" width="70" height="70" >
+                        </div>
                         <div id="map" style="height: 400px"></div>
 
                         <script>
