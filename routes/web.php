@@ -66,7 +66,7 @@ Route::get('mapmarker', [ MapController::class, 'markers' ] );
 
 Route::get('edit/{id}', [FoodController::class, 'edit']);
 Route::put('update/{id}', [FoodController::class, 'update']);
-Route::get('deletes/{id}', [FoodController::class, 'destroy']);
+Route::get('deletes/{id}', [MapController::class, 'destroy']);
 
 Route::get('editmarker/{id}', [MapController::class, 'edit']);
 Route::put('update/{id}', [MapController::class, 'update']);

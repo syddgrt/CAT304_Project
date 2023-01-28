@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class MapController extends Controller
 {
@@ -92,21 +93,37 @@ class MapController extends Controller
     public function edit($id)
     {
         $student = Marker::find($id);
-       
-        return view('editmarker',compact('student'));
+        $category = Category::all();
+        $current_user_id = Auth::id();
+
+        return view('editmarker',compact('student','category','current_user_id'));
+        //return view('cmarker', compact('category','current_user_id'));
     }
 
 
     public function update(Request $request, $id)
     {
         $student = Marker::find($id);
-        $student->title = $request->input('title');
+        //$student->user_id = $request->input('user_id');
         $student->latitude = $request->input('latitude');
         $student->longitude = $request->input('longitude');
-    
-        
+        $student->title = $request->input('title');
+        $student->category_id = $request->input('category_id');
+        $student->description = $request->input('description');
 
-
+        if($request->hasfile('image'))
+        {
+            $destination='public/storage/image/'.$student->image;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('public/storage/image/', $filename);
+            $student->image = $filename;
+        }
         $student->update();
         session()->flash('status','Marker Updated Successfully');
         return redirect()->back();
