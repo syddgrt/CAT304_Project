@@ -81,9 +81,9 @@
 }
 	
 body {
-  background: linear-gradient(to right, #000000, #363727, #344105, #000000, #363727, #344105);
+ 
   background-size: 200% 200%;
-  animation: gradient 10s ease infinite;
+  animation: gradient 30s ease infinite;
 }
 
 @keyframes gradient {
@@ -166,13 +166,13 @@ body {
 
 .box:active{background-color: #3e8e41}
 .box:visited {
-    border: 2px solid #ee82ee;
+    border: 3px solid #ee82ee;
 }
 
 .box:hover {
     background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  
+
 
 }
 
@@ -237,4 +237,10 @@ body {
     }
 }
 
+</style>
+
+<style>
+    body {
+  background-image: url("TemplateGP/assets/img/download.gif");
+}
 </style>

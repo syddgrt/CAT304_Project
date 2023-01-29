@@ -60,12 +60,10 @@
                 </p>
 
                 @if(Auth::id() == $marker->user_id)
-                @can('admin')
                 <p>
                     <a href="{{ url('editmarker/'.$marker->id) }}" class="btn btn-primary btn-sm">Edit</a>
                     <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
                 </p> 
-                @endcan
                 @endif
             </div>
         </div>

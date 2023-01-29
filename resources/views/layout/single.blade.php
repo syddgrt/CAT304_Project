@@ -64,11 +64,6 @@
     font-family: 'Poppins', sans-serif
 }
 	
-body {
-  background: linear-gradient(to right, #000000, #363727, #344105, #000000, #363727, #344105);
-  background-size: 200% 200%;
-  animation: gradient 10s ease infinite;
-}
 
 @keyframes gradient {
   0% {

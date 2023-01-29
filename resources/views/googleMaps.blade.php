@@ -47,7 +47,6 @@
             height: 100%;
             z-index: 1;
             }
-
             .create-btn{
                  position: fixed;
         bottom: 10px;
@@ -62,7 +61,6 @@
             .leaflet-control-zoom1 {
          display: none;
             }
-
                 .leaflet-control-zoom {
             /* styles */
                 position: absolute;
@@ -148,52 +146,122 @@
         
         <!-- <div id='map' style='height: 95vh; width: 100%;'></div> -->
         
-    <div id="map" style="width: 100%; height: 100%;"></div>
-    <div class="container align-self-center d-flex justify-content-center align-items-center">
-    <a href="{{ url('/cmarker') }}" class="btn btn-success create-btn">Create Report</a>
-    </div>
+        <div id="map" style="width: 100%; height: 100%;"></div>
+        <h2><a href="{{ url('/cmarker') }}" class="btn create-btn btn-success">Create Report</a></h2>
+ 
 
-    <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
+
+
+
+
+
+
+   <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js' crossorigin=''></script>
     <script src='https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js'></script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.68.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.68.0/dist/L.Control.Locate.min.js" integrity="sha512-rZ+NofGpwYJ5L5FZp5X9Bf0R6RjA2J7E/1cq3mY5Y+GJ5P5vZB9X5BnRfDnj5QEi5khec3qIo5YiM8EjxMb9cg==" crossorigin=""></script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 
     <script>
         const geocoder = L.Control.Geocoder.nominatim();
         let map, markers = [];
+       
         /* ----------------------------- Initialize Map ----------------------------- */
-        function initMap() {
-            
-            map = L.map('map', {
-                center: {
-                    lat: 5.425300,
-                    lng: 100.312386,
-                }, zoomControl: false,
-                zoom: 15
+        if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var userLatLng = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        map = L.map('map', {
+            center: userLatLng, zoomControl : false,
+            zoom: 15
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
 
-                
-            }
-            );
-             // disable the default zoom control
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',  {
-                attribution: '© OpenStreetMap' 
-            }).addTo(map);
-    
-            map.on('click', mapClicked);
-            initMarkers();
-
- 
-            
-          
-
-            // add the custom zoom control to the bottom left corner
+ // add the custom zoom control to the bottom left corner
             L.control.zoom({
                 position: 'bottomleft'
             }).addTo(map);
+        
 
-        
-            
-        
-        }
-        initMap();
+        map.on('click', mapClicked);
+        initMarkers();
+
+        var locateControl = L.control.locate({
+            locate: true,
+            position: 'bottomright',
+            drawCircle: true,
+            follow: true,
+            setView: true,
+            keepCurrentZoomLevel: true,
+            markerStyle: {
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            },
+            circleStyle: {
+                weight: 1,
+                clickable: false
+            },
+            icon: 'fa fa-location-arrow',
+            metric: false,
+            strings: {
+                title: "Show me where I am",
+                popup: "You are Here",
+                outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+            },
+            locateOptions: {
+                maxZoom: 18,
+                watch: true,
+                enableHighAccuracy: true,
+                maximumAge: 10000,
+            }
+
+        }).addTo(map);
+        var searchControl = L.Control.geocoder({
+        defaultMarkGeocode: false,  position: 'bottomright',   
+    }).addTo(map);
+    searchControl.on('markgeocode', function(e) {
+                                var lat= e.geocode.center.lat;
+                                var lng = e.geocode.center.lng;
+        map.setView([lat, lng], map.getZoom(10))});
+
+    
+   
+
+    });
+} else {
+    // browser doesn't support geolocation
+    var defaultLatLng = {
+        lat: 5.425300,
+        lng: 100.312386
+    };
+    map = L.map('map', {
+        center: defaultLatLng,
+        zoom: 15
+    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    map.on('click', mapClicked);
+    initMarkers();
+}
+
+
+
+
+   
+
+       
+       
+    
+
      
         /* --------------------------- Initialize Markers --------------------------- */
         function initMarkers() {
@@ -201,7 +269,7 @@
             for (let index = 0; index < initialMarkers.length; index++) {
                 const data = initialMarkers[index];
                 const marker = generateMarker(data, index);
-                marker.addTo(map).bindPopup(`<center><b>Report #${data.position.id}</b><br> ${data.position.tit}</center>`);
+                marker.addTo(map).bindPopup(`<center><b>Foodbank #${data.position.id}</b></center>`);
                 map.panTo(data.position);
                 markers.push(marker)
                 
@@ -258,7 +326,7 @@
         }
 
 
-   
+	
     </script>
     </div>
    

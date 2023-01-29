@@ -13,7 +13,7 @@
         <title>ReportTruzz - Home</title>
 
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="TemplateGP/assets/favicon.ico" />
 
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />

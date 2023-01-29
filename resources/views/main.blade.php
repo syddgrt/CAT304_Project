@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-        <title>Gp Bootstrap Template - Index</title>
+        <title>ReporTruzz</title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />
 
@@ -66,7 +66,7 @@
                 class="container d-flex align-items-center justify-content-lg-between"
             >
                 <h1 class="logo me-auto me-lg-0">
-                    <a href="index.html">ReporTruzz<span>.</span></a>
+                    <a href="/main">ReporTruzz<span>.</span></a>
                 </h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="TemplateGP/assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -83,12 +83,7 @@
                         </li>
                         <li>
                             <a class="nav-link scrollto" href="#services"
-                                >Services</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link scrollto" href="#portfolio"
-                                >Portfolio</a
+                                >Features</a
                             >
                         </li>
                         <li>
@@ -96,12 +91,8 @@
                         </li>
                                         <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
-                            <li><a href="#">Your Profile</a></li>
-                            <li class="dropdown"><a href="#"><span>Your Report</span> <i class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                <li><a href="#">Edit Report</a></li>
-                                <li><a href="#">Delete Report</a></li>
-                                </ul>
+                            
+                            <li><a href="/yourReport">Your Report</a> </li>
                                 <li><a href="#" onclick="logout()">Logout</a>
                                                     <script>
                                                         function logout() {
@@ -114,8 +105,8 @@
 
                                                     </script>
                                                 
-                                                </a></li>
-                            </li>
+                                                </li>
+                            
                             </ul>
                         </li>
                        
@@ -198,7 +189,7 @@
                             data-aos-delay="100"
                         >
                             <img
-                                src="TemplateGP/assets/img/about.jpg"
+                                src="TemplateGP/assets/img/jalan.jpg"
                                 class="img-fluid"
                                 alt=""
                             />
@@ -209,7 +200,7 @@
                             data-aos-delay="100"
                         >
                             <h3>
-                                What is ReporTruzz.
+                                What is ReporTruzz
                             </h3>
                             <p class="fst-italic center-align">
                             ReporTruzz is a revolutionary platform that empowers communities to actively participate in maintaining 
@@ -242,150 +233,12 @@
             </section>
             <!-- End About Section -->
 
-            <!-- ======= Clients Section ======= -->
-            <section id="clients" class="clients">
-                <div class="container" data-aos="zoom-in">
-                    <div class="clients-slider swiper">
-                        <div class="swiper-wrapper align-items-center">
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-1.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-2.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-3.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-4.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-5.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-6.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-7.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="swiper-slide">
-                                <img
-                                    src="TemplateGP/assets/img/clients/client-8.png"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Clients Section -->
-
-            <!-- ======= Features Section ======= -->
-            <section id="features" class="features">
-                <div class="container" data-aos="fade-up">
-                    <div class="row">
-                        <div
-                            class="image col-lg-6"
-                            style="
-                                background-image: url('TemplateGP/assets/img/features.jpg');
-                            "
-                            data-aos="fade-right"
-                        ></div>
-                        <div
-                            class="col-lg-6"
-                            data-aos="fade-left"
-                            data-aos-delay="100"
-                        >
-                            <div
-                                class="icon-box mt-5 mt-lg-0"
-                                data-aos="zoom-in"
-                                data-aos-delay="150"
-                            >
-                                <i class="bx bx-receipt"></i>
-                                <h4>Est labore ad</h4>
-                                <p>
-                                    Consequuntur sunt aut quasi enim aliquam
-                                    quae harum pariatur laboris nisi ut aliquip
-                                </p>
-                            </div>
-                            <div
-                                class="icon-box mt-5"
-                                data-aos="zoom-in"
-                                data-aos-delay="150"
-                            >
-                                <i class="bx bx-cube-alt"></i>
-                                <h4>Harum esse qui</h4>
-                                <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt
-                                </p>
-                            </div>
-                            <div
-                                class="icon-box mt-5"
-                                data-aos="zoom-in"
-                                data-aos-delay="150"
-                            >
-                                <i class="bx bx-images"></i>
-                                <h4>Aut occaecati</h4>
-                                <p>
-                                    Aut suscipit aut cum nemo deleniti aut
-                                    omnis. Doloribus ut maiores omnis facere
-                                </p>
-                            </div>
-                            <div
-                                class="icon-box mt-5"
-                                data-aos="zoom-in"
-                                data-aos-delay="150"
-                            >
-                                <i class="bx bx-shield"></i>
-                                <h4>Beatae veritatis</h4>
-                                <p>
-                                    Expedita veritatis consequuntur nihil
-                                    tempore laudantium vitae denat pacta
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Features Section -->
-
             <!-- ======= Services Section ======= -->
             <section id="services" class="services">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <h2>Services</h2>
-                        <p>Check our Services</p>
+                        <h2>REPORTRUZZ</h2>
+                        <p>Check our Application</p>
                     </div>
 
                     <div class="row">
@@ -396,12 +249,11 @@
                         >
                             <div class="icon-box">
                                 <div class="icon">
-                                    <i class="bx bxl-dribbble"></i>
+                                    <i class="bx bx-file"></i>
                                 </div>
-                                <h4><a href="">Lorem Ipsum</a></h4>
+                                <h4><a href="/home">Report Dashboard</a></h4>
                                 <p>
-                                    Voluptatum deleniti atque corrupti quos
-                                    dolores et quas molestias excepturi
+                                    Report Dashboard will show every report submitted by the user
                                 </p>
                             </div>
                         </div>
@@ -415,10 +267,9 @@
                                 <div class="icon">
                                     <i class="bx bx-file"></i>
                                 </div>
-                                <h4><a href="">Sed ut perspiciatis</a></h4>
+                                <h4><a href="/googleMaps">Maps</a></h4>
                                 <p>
-                                    Duis aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore
+                                    The report location will be marked on maps by a marker
                                 </p>
                             </div>
                         </div>
@@ -432,500 +283,16 @@
                                 <div class="icon">
                                     <i class="bx bx-tachometer"></i>
                                 </div>
-                                <h4><a href="">Magni Dolores</a></h4>
+                                <h4><a href="/cmarker">Create Report</a></h4>
                                 <p>
-                                    Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia
+                                User can create report on damage road infrastructure in create report page
                                 </p>
                             </div>
                         </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
-                            data-aos="zoom-in"
-                            data-aos-delay="100"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-world"></i>
-                                </div>
-                                <h4><a href="">Nemo Enim</a></h4>
-                                <p>
-                                    At vero eos et accusamus et iusto odio
-                                    dignissimos ducimus qui blanditiis
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
-                            data-aos="zoom-in"
-                            data-aos-delay="200"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-slideshow"></i>
-                                </div>
-                                <h4><a href="">Dele cardo</a></h4>
-                                <p>
-                                    Quis consequatur saepe eligendi voluptatem
-                                    consequatur dolor consequuntur
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
-                            data-aos="zoom-in"
-                            data-aos-delay="300"
-                        >
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <i class="bx bx-arch"></i>
-                                </div>
-                                <h4><a href="">Divera don</a></h4>
-                                <p>
-                                    Modi nostrum vel laborum. Porro fugit error
-                                    sit minus sapiente sit aspernatur
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Services Section -->
-
-            <!-- ======= Cta Section ======= -->
-            <section id="cta" class="cta">
-                <div class="container" data-aos="zoom-in">
-                    <div class="text-center">
-                        <h3>Call To Action</h3>
-                        <p>
-                            Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est
-                            laborum.
-                        </p>
-                        <a class="cta-btn" href="#">Call To Action</a>
-                    </div>
-                </div>
-            </section>
-            <!-- End Cta Section -->
-
-            <!-- ======= Portfolio Section ======= -->
-            <section id="portfolio" class="portfolio">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Portfolio</h2>
-                        <p>Check our Portfolio</p>
-                    </div>
-
-                    <div class="row" data-aos="fade-up" data-aos-delay="100">
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            <ul id="portfolio-flters">
-                                <li data-filter="*" class="filter-active">
-                                    All
-                                </li>
-                                <li data-filter=".filter-app">App</li>
-                                <li data-filter=".filter-card">Card</li>
-                                <li data-filter=".filter-web">Web</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div
-                        class="row portfolio-container"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-1.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>App 1</h4>
-                                    <p>App</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-1.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="App 1"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-2.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>Web 3</h4>
-                                    <p>Web</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-2.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="Web 3"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-3.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>App 2</h4>
-                                    <p>App</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-3.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="App 2"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-4.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>Card 2</h4>
-                                    <p>Card</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-4.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="Card 2"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-5.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>Web 2</h4>
-                                    <p>Web</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-5.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="Web 2"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-app"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-6.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>App 3</h4>
-                                    <p>App</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-6.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="App 3"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-7.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>Card 1</h4>
-                                    <p>Card</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-7.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="Card 1"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-card"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-8.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>Card 3</h4>
-                                    <p>Card</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-8.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="Card 3"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="col-lg-4 col-md-6 portfolio-item filter-web"
-                        >
-                            <div class="portfolio-wrap">
-                                <img
-                                    src="TemplateGP/assets/img/portfolio/portfolio-9.jpg"
-                                    class="img-fluid"
-                                    alt=""
-                                />
-                                <div class="portfolio-info">
-                                    <h4>Web 3</h4>
-                                    <p>Web</p>
-                                    <div class="portfolio-links">
-                                        <a
-                                            href="TemplateGP/assets/img/portfolio/portfolio-9.jpg"
-                                            data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox"
-                                            title="Web 3"
-                                            ><i class="bx bx-plus"></i
-                                        ></a>
-                                        <a
-                                            href="portfolio-details.html"
-                                            title="More Details"
-                                            ><i class="bx bx-link"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Portfolio Section -->
-
-            <!-- ======= Counts Section ======= -->
-            <section id="counts" class="counts">
-                <div class="container" data-aos="fade-up">
-                    <div class="row no-gutters">
-                        <div
-                            class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
-                            data-aos="fade-right"
-                            data-aos-delay="100"
-                        ></div>
-                        <div
-                            class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch"
-                            data-aos="fade-left"
-                            data-aos-delay="100"
-                        >
-                            <div
-                                class="content d-flex flex-column justify-content-center"
-                            >
-                                <h3>Voluptatem dignissimos provident quasi</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                    Duis aute irure dolor in reprehenderit
-                                </p>
-                                <div class="row">
-                                    <div
-                                        class="col-md-6 d-md-flex align-items-md-stretch"
-                                    >
-                                        <div class="count-box">
-                                            <i class="bi bi-emoji-smile"></i>
-                                            <span
-                                                data-purecounter-start="0"
-                                                data-purecounter-end="65"
-                                                data-purecounter-duration="2"
-                                                class="purecounter"
-                                            ></span>
-                                            <p>
-                                                <strong>Happy Clients</strong>
-                                                consequuntur voluptas nostrum
-                                                aliquid ipsam architecto ut.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="col-md-6 d-md-flex align-items-md-stretch"
-                                    >
-                                        <div class="count-box">
-                                            <i
-                                                class="bi bi-journal-richtext"
-                                            ></i>
-                                            <span
-                                                data-purecounter-start="0"
-                                                data-purecounter-end="85"
-                                                data-purecounter-duration="2"
-                                                class="purecounter"
-                                            ></span>
-                                            <p>
-                                                <strong>Projects</strong>
-                                                adipisci atque cum quia
-                                                aspernatur totam laudantium et
-                                                quia dere tan
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="col-md-6 d-md-flex align-items-md-stretch"
-                                    >
-                                        <div class="count-box">
-                                            <i class="bi bi-clock"></i>
-                                            <span
-                                                data-purecounter-start="0"
-                                                data-purecounter-end="35"
-                                                data-purecounter-duration="4"
-                                                class="purecounter"
-                                            ></span>
-                                            <p>
-                                                <strong
-                                                    >Years of experience</strong
-                                                >
-                                                aut commodi quaerat modi aliquam
-                                                nam ducimus aut voluptate non
-                                                vel
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="col-md-6 d-md-flex align-items-md-stretch"
-                                    >
-                                        <div class="count-box">
-                                            <i class="bi bi-award"></i>
-                                            <span
-                                                data-purecounter-start="0"
-                                                data-purecounter-end="20"
-                                                data-purecounter-duration="4"
-                                                class="purecounter"
-                                            ></span>
-                                            <p>
-                                                <strong>Awards</strong> rerum
-                                                asperiores dolor alias quo
-                                                reprehenderit eum et nemo pad
-                                                der
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End .content-->
-                        </div>
-                    </div>
-                </div>
+                        <P> </P>
+                        <p> </P>
+      
+                
             </section>
             <!-- End Counts Section -->
 
@@ -1115,8 +482,8 @@
                                     </div>
                                 </div>
                                 <div class="member-info">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
+                                    <h4>Syed Muhammad Haikal Bin Syed Husni</h4>
+                                    <span>Team Members</span>
                                 </div>
                             </div>
                         </div>
@@ -1131,7 +498,7 @@
                             >
                                 <div class="member-img">
                                     <img
-                                        src="TemplateGP/assets/img/team/team-2.jpg"
+                                        src="TemplateGP/assets/img/team/gambo.png"
                                         class="img-fluid"
                                         alt=""
                                     />
@@ -1151,8 +518,8 @@
                                     </div>
                                 </div>
                                 <div class="member-info">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Product Manager</span>
+                                    <h4>Wan Muhammad Hazim Aufa Bin Wan Suhaimi</h4>
+                                    <span>Team Members</span>
                                 </div>
                             </div>
                         </div>
@@ -1167,6 +534,7 @@
                             >
                                 <div class="member-img">
                                     <img
+                                        text-align: center;
                                         src="TemplateGP/assets/img/team/team-3.jpg"
                                         class="img-fluid"
                                         alt=""
@@ -1187,158 +555,13 @@
                                     </div>
                                 </div>
                                 <div class="member-info">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
+                                    <h4>Muhammad Syaqir Bin Zahir</h4>
+                                    <span>Team Members</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div
-                            class="col-lg-3 col-md-6 d-flex align-items-stretch"
-                        >
-                            <div
-                                class="member"
-                                data-aos="fade-up"
-                                data-aos-delay="400"
-                            >
-                                <div class="member-img">
-                                    <img
-                                        src="TemplateGP/assets/img/team/team-4.jpg"
-                                        class="img-fluid"
-                                        alt=""
-                                    />
-                                    <div class="social">
-                                        <a href=""
-                                            ><i class="bi bi-twitter"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-facebook"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-instagram"></i
-                                        ></a>
-                                        <a href=""
-                                            ><i class="bi bi-linkedin"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div class="member-info">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
             <!-- End Team Section -->
-
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-title">
-                        <h2>Contact</h2>
-                        <p>Contact Us</p>
-                    </div>
-
-                    <div>
-                        <iframe
-                            style="border: 0; width: 100%; height: 270px"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                            frameborder="0"
-                            allowfullscreen
-                        ></iframe>
-                    </div>
-
-                    <div class="row mt-5">
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <div class="address">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
-                                </div>
-
-                                <div class="email">
-                                    <i class="bi bi-envelope"></i>
-                                    <h4>Email:</h4>
-                                    <p>info@example.com</p>
-                                </div>
-
-                                <div class="phone">
-                                    <i class="bi bi-phone"></i>
-                                    <h4>Call:</h4>
-                                    <p>+1 5589 55488 55s</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-8 mt-5 mt-lg-0">
-                            <form
-                                action="forms/contact.php"
-                                method="post"
-                                role="form"
-                                class="php-email-form"
-                            >
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            class="form-control"
-                                            id="name"
-                                            placeholder="Your Name"
-                                            required
-                                        />
-                                    </div>
-                                    <div
-                                        class="col-md-6 form-group mt-3 mt-md-0"
-                                    >
-                                        <input
-                                            type="email"
-                                            class="form-control"
-                                            name="email"
-                                            id="email"
-                                            placeholder="Your Email"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-                                <div class="form-group mt-3">
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        name="subject"
-                                        id="subject"
-                                        placeholder="Subject"
-                                        required
-                                    />
-                                </div>
-                                <div class="form-group mt-3">
-                                    <textarea
-                                        class="form-control"
-                                        name="message"
-                                        rows="5"
-                                        placeholder="Message"
-                                        required
-                                    ></textarea>
-                                </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">
-                                        Your message has been sent. Thank you!
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Contact Section -->
         </main>
         <!-- End #main -->
 
@@ -1349,14 +572,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-info">
-                                <h3>Gp<span>.</span></h3>
-                                <p>
-                                    A108 Adam Street <br />
-                                    NY 535022, USA<br /><br />
-                                    <strong>Phone:</strong> +1 5589 55488 55<br />
-                                    <strong>Email:</strong>
-                                    info@example.com<br />
-                                </p>
+                                <h3>REPORTRUZZ<span>.</span></h3>
                                 <div class="social-links mt-3">
                                     <a href="#" class="twitter"
                                         ><i class="bx bxl-twitter"></i
@@ -1376,71 +592,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-2 col-md-6 footer-links">
-                            <h4>Useful Links</h4>
-                            <ul>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">About us</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Services</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Terms of service</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Privacy policy</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 footer-links">
-                            <h4>Our Services</h4>
-                            <ul>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Web Design</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Web Development</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Product Management</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Marketing</a>
-                                </li>
-                                <li>
-                                    <i class="bx bx-chevron-right"></i>
-                                    <a href="#">Graphic Design</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 footer-newsletter">
-                            <h4>Our Newsletter</h4>
-                            <p>
-                                Tamen quem nulla quae legam multos aute sint
-                                culpa legam noster magna
-                            </p>
-                            <form action="" method="post">
-                                <input type="email" name="email" /><input
-                                    type="submit"
-                                    value="Subscribe"
-                                />
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -1456,8 +607,6 @@
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-                    Designed by
-                    <a href="https://bootstrapmade.com/">BootstrapMade</a>
                 </div>
             </div>
         </footer>
