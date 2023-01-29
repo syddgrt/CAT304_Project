@@ -92,7 +92,7 @@
                                         <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                             
-                            <li class="dropdown"><a href="/yourReport"><span>Your Report</span> <i class="bi bi-chevron-right"></i></a>
+                            <li><a href="/yourReport">Your Report</a> </li>
                                 <li><a href="#" onclick="logout()">Logout</a>
                                                     <script>
                                                         function logout() {
@@ -105,8 +105,8 @@
 
                                                     </script>
                                                 
-                                                </a></li>
-                            </li>
+                                                </li>
+                            
                             </ul>
                         </li>
                        

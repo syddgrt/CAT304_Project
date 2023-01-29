@@ -50,7 +50,7 @@
         </div>
     </form> -->
 
-    <div class="card-body">
+    <div class="card-body"><style>.body{height: auto} </style>
 
         <div class="pt-4 pb-2">
         <h1 class="card-title text-center pb-0 fs-4">ReportTruzz</h5>
@@ -91,7 +91,6 @@
 
 
 @endsection
-
 
 
 <style>
