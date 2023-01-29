@@ -147,6 +147,7 @@
         <!-- <div id='map' style='height: 95vh; width: 100%;'></div> -->
         
         <div id="map" style="width: 100%; height: 100%;"></div>
+        <h2><a href="{{ url('/cmarker') }}" class="btn create-btn btn-success">Create Report</a></h2>
  
 
 
@@ -173,7 +174,7 @@
         var userLatLng = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
-        }; 
+        };
         map = L.map('map', {
             center: userLatLng, zoomControl : false,
             zoom: 15
@@ -201,7 +202,7 @@
             markerStyle: {
                 weight: 1,
                 opacity: 1,
-                fillOpacity: 0.8,
+                fillOpacity: 0.8
             },
             circleStyle: {
                 weight: 1,
