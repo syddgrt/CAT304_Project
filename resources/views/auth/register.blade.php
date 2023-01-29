@@ -1,4 +1,4 @@
-@extends('layout.public') 
+@extends('layout.single') 
 
 @section('content')
     @if ($errors->any())

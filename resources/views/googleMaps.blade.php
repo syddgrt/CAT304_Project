@@ -59,7 +59,9 @@
         background: #00FF7F;
         
             }
-            
+            .leaflet-control-zoom1 {
+         display: none;
+            }
 
                 .leaflet-control-zoom {
             /* styles */
@@ -164,15 +166,15 @@
                 center: {
                     lat: 5.425300,
                     lng: 100.312386,
-                },
+                }, zoomControl: false,
                 zoom: 15
 
                 
             }
             );
-            zoomControl: false, // disable the default zoom control
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap'
+             // disable the default zoom control
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',  {
+                attribution: '© OpenStreetMap' 
             }).addTo(map);
     
             map.on('click', mapClicked);
