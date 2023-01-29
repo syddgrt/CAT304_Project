@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
         $totalReports = Marker::count();
         $resolvedReports = Marker::where('status', 'Resolved')->count();
-        $inProgressReports = Marker::where('status', 'In Progress')->count();
+        $inProgressReports = Marker::where('status', 'Ongoing')->count();
         $rows = DB::table('categories')->get();
         $row1 = Marker::with('user','category')->get();
         $data = DB::table('markers')->select(DB::raw('COUNT(*) as count, category_id'))->groupBy('category_id')->get();

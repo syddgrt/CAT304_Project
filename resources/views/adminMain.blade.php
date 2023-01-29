@@ -77,19 +77,19 @@
             </div>
             <li class="nav-item active">
                 <a class="nav-link" href="/home">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-folder"></i>
                     <span>Home</span></a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="/main">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-wrench"></i>
                     <span>Main</span></a>
             </li>
 
             <li class="nav-item active">
                 <a class="nav-link" href="/cmarker">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>Marker</span></a>
             </li>
 
@@ -193,7 +193,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Reports In Progress </div>
+                                                Reports Ongoing </div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $inProgressReports }}</div>
                                         </div>
                                         
@@ -247,17 +247,31 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Report List</h6>
             </div>
-            <script>
-            // $(document).ready( function () {
-            //     $('#title').DataTable();
-            // } );
-            var table = $('#dataTable').DataTable();
-            </script>
+            <style>
+                .status-New {
+                background-color: red;
+                border-radius: 10px;
+                color: white;
+                padding: 1px;
+            }
+
+                .status-Ongoing {
+                background-color: yellow;
+                /* border-radius: 10px; */
+               
+                padding: 1px;
+            }
+
+                .status-Resolved {
+                background-color: green;
+                border-radius: 10px; 
+                color: white;
+                padding: 5px;
+            }
+            </style>
+     
             <div class="card-body">
                 <div class="table-responsive">
-                    <div class="dataTables_filter">
-                        <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label>
-                    </div>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
@@ -265,7 +279,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Report Name</th>                   
-                            <th scope="col">Category ID</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Status</th>
                             <th scope="col">Change Status</th>
                             
@@ -279,19 +293,20 @@
                             <td>{{$foods->user?->email}}</td>
                             <th scope="row"><a href="$id">{{$foods->title}}</a></th>
                             <td>{{$foods->category_id}}</td>
-                            <td>{{$foods->created_at}}</td>
-                            <td>{{$foods->status}}</td>
+                            <td class="status-{{ $foods->status }}">{{ $foods->status }}</td>
                                 <td><form method="post" action="{{ url('status/update', $foods->id) }}">
-                                @csrf
+                                @csrf                             
                                 @method('PUT')
-                                <select name="status" id="status" class="form-control">
+                                <select name="status" id="status" class="form-control">                                  
                                     <option value="New" {{ ($foods->status == 'New') ? 'selected' : '' }}>New</option>
-                                    <option value="In Progress" {{ ($foods->status == 'In Progress') ? 'selected' : '' }}>In Progress</option>
+                                    <option value="Ongoing" {{ ($foods->status == 'Ongoing') ? 'selected' : '' }}>Ongoing</option>
                                     <option value="Resolved" {{ ($foods->status == 'Resolved') ? 'selected' : '' }}>Resolved</option>
-                                </select>
-                                <button type="submit" class="btn btn-secondary button-tukaq">Save</button>
+                                </select>     
+                                <button type="submit" class="btn btn-secondary button-tukaq">Save</button>                                                      
                                 </form>
                                 </td>  
+                                <td></td>
+                                
                         </tr>    
                         @endforeach                      
                         </tbody>
@@ -304,10 +319,38 @@
                 <!-- /.container-fluid -->
 
                     <!-- Content Row -->
+                    <style>
+                        .padding-graph{
+                            padding-right:5.5rem;
+                            padding-left:5.5rem;
+                        }
+
+                        .ml-graph{
+                            margin-left:2.5rem;
+                            margin-top:1.5rem;
+                        }
+                        .card-graph {
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;
+                            border: 1px solid #e3e6f0;
+                            border-radius: 1.0rem;
+                        }
+                        
+                    </style>
                          
 
-                    <canvas id="myChart" width="600" height="400"></canvas>
+                    <!-- <canvas id="myChart" width="600" height="400"></canvas> -->
+                    <div class="card-graph shadow mb-4 ml-graph mt-2 padding-graph">
 
+                        <div style="width: 1000px">
+                            <canvas id="myChart" width="40%"></canvas>
+                        </div>
+                    </div>
                     <!-- bar chart -->
                     <div class="col-3 mb-4">
 
@@ -328,10 +371,13 @@
                                                     @break
                                                 @case(3)
                                                     'Pavement maintenance',
+                                                    @break
                                                 @case(4)
                                                     'Stray Animals Problem',
+                                                    @break
                                                 @case(5)
                                                     'Traffic sign damage',
+                                                    @break
                                                 @case(6)
                                                     'Other',
                                                     @break
@@ -359,26 +405,52 @@
                                             'rgba(153, 102, 255, 1)',
                                             'rgba(255, 159, 64, 1)'
                                         ],
-                                        borderWidth: 3
+                                        borderWidth: 2
                                     }]
-                                },
+                                },        
                                 options: {
+                                    tooltips: {
+                                        callbacks: {
+                                            label: function(tooltipItem) {
+                                                return tooltipItem.yLabel;
+                                            }
+                                        }
+                                    },
+                                    animation: {
+                                        duration: 2000,
+                                        easing: 'easeInOutQuad'
+                                    },
                                     scales: {
                                         y: {
-                                            options: {
-                                                scales: {
-                                                    y: {
-                                                        beginAtZero: true,
-                                                        ticks: {
-                                                            fontColor: 'black',
-                                                            fontSize: 18
-                                                        }
-                                                    }
-                                                }
+                                            beginAtZero: true,
+                                            ticks: {
+                                                callback: function(value) {
+                                                    return value.toFixed(0);
+                                                },
+                                                fontColor: 'black',
+                                                fontSize: 18
                                             }
-                                        }                                     
+                                        },
+                                        x: {
+                                            ticks: {
+                                                fontSize: 14
+                                            }
+                                        }
+                                    },
+
+                                    title: {
+                                        display: true,
+                                        text: 'Number of reports based on categories',
+                                        fontSize: 18
+                                    },
+                                    legend: {
+                                        display: false,
+                                        position: 'bottom',
+                                        labels: {
+                                            fontSize: 14
+                                        }
                                     }
-                                }
+                                }                                              
                             });
                         </script>
                     </div>
@@ -387,7 +459,7 @@
                         <div class="col-lg-6 mb-4">
 
                             <!-- Approach -->
-                            <div class="card shadow mb-4">
+                            <!-- <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Authorities</h6>
                                 </div>
@@ -408,7 +480,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
