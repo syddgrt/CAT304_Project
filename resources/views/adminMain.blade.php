@@ -23,6 +23,8 @@
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     
     
     <!-- <canvas id="barChart"></canvas> -->
@@ -61,7 +63,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="adminMain">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Admin Dashboard</span></a>
             </li>
@@ -73,6 +75,23 @@
             <div class="sidebar-heading">
                 Interface
             </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Home</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/main">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Main</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/cmarker">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Marker</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -246,7 +265,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Report Name</th>                   
-                            <th scope="col">Date Uploaded</th>
+                            <th scope="col">Category ID</th>
                             <th scope="col">Status</th>
                             <th scope="col">Change Status</th>
                             
@@ -258,7 +277,8 @@
                             <th scope="row">{{$foods->id}}</th>
                             <td>{{$foods->user?->name}}</td>
                             <td>{{$foods->user?->email}}</td>
-                            <th scope="row"><a href="#">{{$foods->title}}</a></th>
+                            <th scope="row"><a href="$id">{{$foods->title}}</a></th>
+                            <td>{{$foods->category_id}}</td>
                             <td>{{$foods->created_at}}</td>
                             <td>{{$foods->status}}</td>
                                 <td><form method="post" action="{{ url('status/update', $foods->id) }}">
@@ -272,10 +292,7 @@
                                 <button type="submit" class="btn btn-secondary button-tukaq">Save</button>
                                 </form>
                                 </td>  
-                        </tr>  
-                        
-                        
-                        
+                        </tr>    
                         @endforeach                      
                         </tbody>
                     </table>
@@ -287,25 +304,85 @@
                 <!-- /.container-fluid -->
 
                     <!-- Content Row -->
-                    <div class="row">
+                         
 
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                    <canvas id="myChart" width="600" height="400"></canvas>
 
-                            <!-- Project Card Example -->
-                            @foreach($rows as $food)
-                            <div class="card shadow ">
-                                <div class="card-body">
-                                    <h4 class="small font-weight-bold">{{$food->name}}<span
-                                        class="float-right">0</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 0%"
-                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>                                  
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
+                    <!-- bar chart -->
+                    <div class="col-3 mb-4">
+
+                        <script>
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            var myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: 
+                                        [
+                                            @foreach($data as $d) 
+                                            @switch($d->category_id)
+                                                @case(1)
+                                                    'Abandoned Vehicles',
+                                                    @break
+                                                @case(2)
+                                                    'Road Damages',
+                                                    @break
+                                                @case(3)
+                                                    'Pavement maintenance',
+                                                @case(4)
+                                                    'Stray Animals Problem',
+                                                @case(5)
+                                                    'Traffic sign damage',
+                                                @case(6)
+                                                    'Other',
+                                                    @break
+                                                @default
+                                                    'Other',
+                                            @endswitch
+                                        @endforeach
+                                    ],
+                                    datasets: [{
+                                        label: 'Number of Reports based on categories',
+                                        data: [@foreach($data as $d) {{ $d->count }}, @endforeach],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                            'rgba(255, 159, 64, 1)'
+                                        ],
+                                        borderWidth: 3
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            options: {
+                                                scales: {
+                                                    y: {
+                                                        beginAtZero: true,
+                                                        ticks: {
+                                                            fontColor: 'black',
+                                                            fontSize: 18
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }                                     
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                        
 
                         <div class="col-lg-6 mb-4">
 

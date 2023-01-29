@@ -18,28 +18,31 @@
 <p> </p>
 <div class="card-columns">
     @foreach($foods as $food)
-    
+    @if(Auth::id() == $food->user_id)
+        
     <div class="card">
     <!-- <img src="{{ asset('storage/image/'.$food->image) }}" alt="image"> -->
+    
         <div class="card-body">
+        
         <h4><img src="{{ asset('public/storage/image/'.$food->image) }}" width="300" height="300"></h4> 
         
             <h4 class="card-title">{{ $food->food_name }}</h4>
             <p class="card-text">Category: {{ $food->category?->name}}</p>
             <p class="card-text">Details: {{ $food->description}}</p>
             <p class="card-text">Email: {{ $food->user?->email}}</p>
-
+            
+        @endif
             <!-- <p class="card-text">Best Before: {{ $food->best_before }}</p>-->
             
             
             @if(Auth::id() == $food->user_id)
-
-             <p>
+            @can('admin')
+            <p>
                 <a href="{{ url('editmarker/'.$food->id) }}" class="btn btn-primary btn-sm">Edit</a>
                 <a href="{{ url('deletes/'.$food->id) }}" class="btn btn-danger btn-sm">Delete</a>
-
-         
            </p> 
+           @endcan
            @endif
             
         </div>
