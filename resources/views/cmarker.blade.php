@@ -34,6 +34,11 @@
                             <label for="">Description</label>
                             <input type="text" name="description" required class="form-control">
                         </div>
+
+                        <div class="mb-3">
+                            <label for="">Status</label>
+                            <input disabled="disabled" type="text" name="status" value ="Active" required class="form-control">
+                        </div>
                           <div class="mb-3">
                             
                            <input type="hidden" name="user_id" value="{{ $current_user_id }}">

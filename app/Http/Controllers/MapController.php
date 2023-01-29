@@ -18,7 +18,7 @@ class MapController extends Controller
         $markers = Marker::all();
 
         
-        $rows = DB::table('markers')->select('latitude','longitude','title','id')->get();
+        $rows = DB::table('markers')->select('latitude','longitude','title','id','status')->get();
          
         $initialMarkers = [];
         foreach ($rows as $object){
@@ -62,6 +62,7 @@ class MapController extends Controller
         $student->longitude = $request->input('longitude');
         $student->category_id = $request->input('category_id');
         $student->description = $request->input('description');
+        $student->status = $request->input('status');
         $student->user_id = $request->input('user_id');
 
         if($request->hasfile('image'))
@@ -110,6 +111,7 @@ class MapController extends Controller
         $student->title = $request->input('title');
         $student->category_id = $request->input('category_id');
         $student->description = $request->input('description');
+        $student->status = $request->input('status');
 
         if($request->hasfile('image'))
         {
