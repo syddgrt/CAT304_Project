@@ -11,19 +11,11 @@
 </head>
 
 
-<h3>Reports</h3>
+<h3>Your Reports</h3>
 
 <a href="{{ url('/main') }}" class="btn btn-primary">Back</a>
 <p> </p>
-<div class="card-columns container" > <style>
-  .container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  column-count: 3;
-}
-</style>
+<div class="card-columns">
     @foreach($markers as $marker)
         @if(Auth::id() == $marker->user_id)
         <div class="card">
