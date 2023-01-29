@@ -1,5 +1,3 @@
-@include('navbar')
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +38,47 @@
 
 <body>
 
- 
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Gp<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="TemplateGP/assets//img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+
+    </div>
+  </header><!-- End Header -->
 
   <main id="main">
 
@@ -49,7 +87,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 style="font-weight: bolder;">Report Dashboard</h2>
+          <h2>Inner Page</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>Inner Page</li>
@@ -59,66 +97,10 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-        <section class="inner-page">
-        <div class="container">
-            <div class="row">
-            @foreach($markers as $marker)
-                <div class="col-md-4">
-                <div class="card">
-                    <style>
-                        .row{--bs-gutter-y: 2.0rem;}
-                    </style>
-                    <div class="card-body">
-                    <h4><img src="{{ asset('public/storage/image/'.$marker->image) }}" width="300" height="300"></h4> 
-                    <h4 class="card-title"><b>{{ $marker->title }}</b></h4>
-                    <p class="card-text">Category: {{ $marker->category?->name}}</p>
-                    <p class="card-text">Details: {{ $marker->description}}</p>
-                    <p class="card-text">Email: {{ $marker->user?->email}}</p>
-                    <p class="card-text">{{ $marker->created_at}}</p>
-                    <style>
-                      .green-box {
-                        background-color: green;
-                        color: white;
-                        padding: 10px;
-                        width: 145px;
-                        border-radius: 10px;
-                      }
-
-                      .yellow-box {
-                        background-color: yellow;
-                        color: black;
-                        padding: 10px;
-                        width: 160px;
-                        border-radius: 10px
-                      }
-
-                      .red-box {
-                        background-color: red;
-                        color: white;
-                        padding: 10px;
-                        width: 110px;
-                        border-radius: 10px
-                      }
-                    </style>
-
-                      <p class="card-text
-                          {{ $marker->status === 'Resolved' ? 'green-box' : '' }}
-                          {{ $marker->status === 'In Progress' ? 'yellow-box' : '' }}
-                          {{ $marker->status === 'New' ? 'red-box' : '' }}">
-                        Status: {{ $marker->status}}
-                      </p>
-                    @if(Auth::id() == $marker->user_id)
-                    <p>
-                        <a href="{{ url('editmarker/'.$marker->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                    </p> 
-                    @endif
-                    </div>
-                </div>
-                </div>
-            @endforeach
-            </div>
-        </div>
+    <section class="inner-page">
+      <div class="container">
+        @yield('content')
+      </div>
     </section>
 
   </main><!-- End #main -->
