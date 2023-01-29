@@ -24,27 +24,11 @@
 
 <div class="container">
         <div class="body d-md-flex align-items-center justify-content-between">
-            <div class="box-1 mt-md-0 mt-5">
-                <img src="https://i.ibb.co/4ttLyQz/32599dcedc23c0675a8229c0644bba81.jpg"
-                    class="" alt="">
-            </div>
-            <div class=" box-2 d-flex flex-column h-100 align-items-center justify-content-between">
-                <div class="mt-5">
-                    <h1 class="logo me-auto me-lg-0 font-weight-bolder" style="color: black;"><a>ReporTruzz<span></span></a></h1>
-                    <p class="text-muted mb-2">Resolve your problem now with us</p>
-                    <div class="d-flex flex-column ">
-                        <p class="text-muted mb-2 text-center">      Continue with...</p>
-                        <div class="d-flex align-items-center">
-                            
-                            <a href="/login" class="box me-2 mx-auto">
-                                <p class="mb-0 text-center">Let's Go</p>
-                            </a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
+          
+            <div class=" card-body">
+              
                
+                        @yield('content')
                    
                 </div>
             </div>
@@ -75,7 +59,7 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 2px;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif
 }
@@ -107,12 +91,13 @@ body {
 .body {
     position: relative;
     width: 720px;
-    height: 440px;
+    height: flex;
     margin: 20px auto;
     border: 1px solid #dddd;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: aliceblue;
 }
 
 .box-1 img {
@@ -123,6 +108,10 @@ body {
 
 .box-2 {
     padding: 10px;
+}
+
+.btn-primary{
+    background-color: #0097ff;
 }
 
 .box-1,
@@ -180,7 +169,7 @@ body {
     background-color: transparent;
     color: #ee82ee;
     border: 0px;
-    padding: 0px;
+    padding: 10;
     font-size: 14px;
 }
 
