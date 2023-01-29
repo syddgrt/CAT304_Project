@@ -1,4 +1,4 @@
-@extends('layout.public') 
+@extends('layout.single') 
 
 @section('content')
     @if ($errors->any())
@@ -107,7 +107,7 @@
 
             <div class="col-12">
                 
-                <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                <button class="btn btn-primary w-100 active" type="submit">Create Account</button>
             </div>
 
             <div class="col-12">
