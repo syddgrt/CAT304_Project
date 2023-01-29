@@ -8,6 +8,7 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\urReportController;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ Route::view('main', 'main')
 // Route::get('/googleMaps', [MapController::class, 'show']);
 Route::get('/googleMaps', [MapController::class, 'show']);
 
-Route::get('/marker/{id}', [MapController::class, 'marker' ] );
+Route::get('/marker/{id}', [MapController::class, 'marker'] );
 
 Route::get('/image/{id}', [FoodController::class, 'imageForm']);
 
@@ -90,6 +91,8 @@ Route::put('update/{id}', [MapController::class, 'update']);
 Route::get('delete/{id}', [MapController::class, 'destroy']);
 
 Route::get('home', [DashboardController::class, 'index']);
+
+Route::get('/yourReport', [urReportController::class, 'index']);
 
 
 

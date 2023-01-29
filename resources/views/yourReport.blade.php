@@ -1,4 +1,5 @@
 @extends('layout.public')
+
  @section('content')
 
 
@@ -14,7 +15,7 @@
 </body>
 <h3>Your Reports</h3>
 
-<a href="{{ url('/googleMaps') }}" class="btn btn-primary">Back</a>
+<a href="{{ url('/main') }}" class="btn btn-primary">Back</a>
     <p> </p>
     <div class="card-columns">
         @foreach($markers as $marker)
