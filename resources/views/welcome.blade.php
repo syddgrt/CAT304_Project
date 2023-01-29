@@ -166,13 +166,13 @@ body {
 
 .box:active{background-color: #3e8e41}
 .box:visited {
-    border: 2px solid #ee82ee;
+    border: 3px solid #ee82ee;
 }
 
 .box:hover {
     background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  
+
 
 }
 
