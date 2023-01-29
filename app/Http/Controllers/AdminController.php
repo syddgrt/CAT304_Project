@@ -15,7 +15,9 @@ class AdminController extends Controller
         $inProgressReports = Marker::where('status', 'In Progress')->count();
         $rows = DB::table('categories')->get();
         $row1 = Marker::with('user','category')->get();
-        return view('adminMain', compact('rows','row1','totalReports','resolvedReports','inProgressReports'));
+        $data = DB::table('markers')->select(DB::raw('COUNT(*) as count, category_id'))->groupBy('category_id')->get();
+
+        return view('adminMain', compact('rows','row1','totalReports','resolvedReports','inProgressReports','data'));
 
         
     }
@@ -26,6 +28,12 @@ class AdminController extends Controller
         dd($marker);
         return view('adminMain', compact('marker'));
     }
+
+    // public function index3(){
+
+       
+    //     return view('adminMain', compact('data'));
+    // }
 
     public function updateStatus(Request $request, $id)
     {

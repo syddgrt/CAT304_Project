@@ -36,8 +36,10 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="">Status</label>
-                            <input disabled="disabled" type="text" name="status" value ="Active" required class="form-control">
+                            <label for="status">Status</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="New">New</option>
+                            </select>
                         </div>
                           <div class="mb-3">
                             

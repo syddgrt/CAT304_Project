@@ -9,7 +9,6 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\urReportController;
-
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -68,9 +67,8 @@ Route::post('/image/{id}', [ FoodController::class, 'store' ] );
 
 Route::get('/adminMain', [AdminController::class, 'index']);
 
-// Route::get('/adminMain/{id}', [AdminController::class, 'index2']);
-
 Route::get('/adminMain/{id}', [AdminController::class, 'index2']);
+
 
 Route::put('/status/update/{id}', [AdminController::class, 'updateStatus']);
 

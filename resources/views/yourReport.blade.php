@@ -10,20 +10,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    
-</body>
+
 <h3>Your Reports</h3>
 
 <a href="{{ url('/main') }}" class="btn btn-primary">Back</a>
-    <p> </p>
-    <div class="card-columns">
-        @foreach($markers as $marker)
+<p> </p>
+<div class="card-columns">
+    @foreach($markers as $marker)
         @if(Auth::id() == $marker->user_id)
         <div class="card">
             <div class="card-body">
-            <h4><img src="{{ asset('public/storage/image/'.$marker->image) }}" width="300" height="300"></h4> 
-            
+                <h4><img src="{{ asset('public/storage/image/'.$marker->image) }}" width="300" height="300"></h4> 
                 <h4 class="card-title">{{ $marker->title }}</h4>
                 <p class="card-text">Category: {{ $marker->category?->name}}</p>
                 <p class="card-text">Details: {{ $marker->description}}</p>
@@ -55,23 +52,22 @@
                     }
                 </style>
 
-                            <p class="card-text
-                            {{ $marker->status === 'Resolved' ? 'green-box' : '' }}
-                            {{ $marker->status === 'In Progress' ? 'yellow-box' : '' }}
-                            {{ $marker->status === 'New' ? 'red-box' : '' }}">
-                            Status: {{ $marker->status}}
-                        </p>
+                <p class="card-text
+                {{ $marker->status === 'Resolved' ? 'green-box' : '' }}
+                {{ $marker->status === 'In Progress' ? 'yellow-box' : '' }}
+                {{ $marker->status === 'New' ? 'red-box' : '' }}">
+                Status: {{ $marker->status}}
+                </p>
+
+                @if(Auth::id() == $marker->user_id)
+                <p>
+                    <a href="{{ url('editmarker/'.$marker->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                </p> 
                 @endif
-                    
-                        @if(Auth::id() == $marker->user_id)
-                        <p>
-                            <a href="{{ url('editmarker/'.$marker->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                        </p> 
-                        @endif
-                
             </div>
         </div>
-        @endforeach
-    </div>
+        @endif
+    @endforeach
+</div>
 @endsection
