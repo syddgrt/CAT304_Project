@@ -174,12 +174,14 @@
                             <h3><a href="">Maps</a></h3>
                         </div>
                     </div>
+                    @can('admin')
                     <div class="col-xl-2 col-md-4">
                         <div class="icon-box">
                             <i class="ri-database-2-line"></i>
-                            <h3><a href="">Admin</a></h3>
+                            <h3><a href="/adminMain">Admin</a></h3>
                         </div>
                     </div>
+                    @endcan
                 </div>
             </div>
         </section>
