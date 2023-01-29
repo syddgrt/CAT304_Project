@@ -23,10 +23,19 @@
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-
+    
     
     <!-- <canvas id="barChart"></canvas> -->
 
+    <style>
+.button-tukaq {
+
+    background-color:black;
+}
+.t{
+    color:black;
+}
+</style>
 
 
 </head>
@@ -37,7 +46,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav button-tukaq sidebar sidebar-dark accordion button-tukaq" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
@@ -134,9 +143,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">Admin Dashboard</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -150,7 +157,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total reports </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalReports }}</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -168,7 +175,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Reports In Progress </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $inProgressReports }}</div>
                                         </div>
                                         
                                     </div>
@@ -184,7 +191,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Reports Solved</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $resolvedReports }}</div>
                                         </div>
                                         <!-- <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -240,18 +247,36 @@
                             <th scope="col">Email</th>
                             <th scope="col">Report Name</th>                   
                             <th scope="col">Date Uploaded</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Change Status</th>
+                            
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($row1 as $foods)
                         <tr>
-                            <th scope="row">{{$foods->id}}</a></th>
+                            <th scope="row">{{$foods->id}}</th>
                             <td>{{$foods->user?->name}}</td>
-                            <td>{{$foods->user?->email}}</a></td>
+                            <td>{{$foods->user?->email}}</td>
                             <th scope="row"><a href="#">{{$foods->title}}</a></th>
                             <td>{{$foods->created_at}}</td>
-                        </tr>         
-                        @endforeach
+                            <td>{{$foods->status}}</td>
+                                <td><form method="post" action="{{ url('status/update', $foods->id) }}">
+                                @csrf
+                                @method('PUT')
+                                <select name="status" id="status" class="form-control">
+                                    <option value="New" {{ ($foods->status == 'New') ? 'selected' : '' }}>New</option>
+                                    <option value="In Progress" {{ ($foods->status == 'In Progress') ? 'selected' : '' }}>In Progress</option>
+                                    <option value="Resolved" {{ ($foods->status == 'Resolved') ? 'selected' : '' }}>Resolved</option>
+                                </select>
+                                <button type="submit" class="btn btn-secondary button-tukaq">Save</button>
+                                </form>
+                                </td>  
+                        </tr>  
+                        
+                        
+                        
+                        @endforeach                      
                         </tbody>
                     </table>
                
@@ -364,7 +389,7 @@
     <script src="templateAdmin\vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="templtemplateAdminate\js/sb-admin-2.min.js"></script>
+    <script src="templateAdmin\js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
     <script src="templateAdmin\vendor/chart.js/Chart.min.js"></script>

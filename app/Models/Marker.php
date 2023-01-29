@@ -10,7 +10,7 @@ Use App\Models\User;
 class Marker extends Model
 {
     use HasFactory;
-    protected $fillable = ['latitude','longitude','title','category_id','user_id','food_image','description'];
+    protected $fillable = ['latitude','longitude','title','category_id','user_id','food_image','description','status'];
 
     protected $primaryKey = 'id';
 

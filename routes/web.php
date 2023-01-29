@@ -65,8 +65,13 @@ Route::get('/image/{id}', [FoodController::class, 'imageForm']);
 
 Route::post('/image/{id}', [ FoodController::class, 'store' ] );
 
-Route::get('/adminMain', [AdminController::class, 'index',]);
+Route::get('/adminMain', [AdminController::class, 'index']);
 
+// Route::get('/adminMain/{id}', [AdminController::class, 'index2']);
+
+Route::get('/adminMain/{id}', [AdminController::class, 'index2']);
+
+Route::put('/status/update/{id}', [AdminController::class, 'updateStatus']);
 
 Route::get('cmarker', [MapController::class, 'imageForm']);
 
