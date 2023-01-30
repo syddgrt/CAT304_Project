@@ -103,7 +103,7 @@
 
                       <p class="card-text
                           {{ $marker->status === 'Resolved' ? 'green-box' : '' }}
-                          {{ $marker->status === 'In Progress' ? 'yellow-box' : '' }}
+                          {{ $marker->status === 'Ongoing' ? 'yellow-box' : '' }}
                           {{ $marker->status === 'New' ? 'red-box' : '' }}">
                         Status: {{ $marker->status}}
                       </p>
