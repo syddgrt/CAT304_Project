@@ -72,14 +72,14 @@
                 </div>
             </div>
         </nav>
-        <!-- Header-->
+        <!-- Header -->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
                 <h1 class="fw-bolder">ReportTruzz</h1>
                 <p class="lead">Report teruih pa bozz</p>
             </div>
         </header>
-        <!-- About section-->
+        About section
         <section class = "bg-light" id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
