@@ -287,7 +287,8 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Report Name</th> 
-                            <th scope="col">Date</th>                  
+                            <th scope="col">Date</th>   
+                            <th scope="col">Status</th>               
                             <th scope="col">Change Status</th>
                             
                         </tr>
@@ -300,7 +301,15 @@
                             <td>{{$foods->user?->email}}</td>
                             <th scope="row"><a href='/marker/{{$foods->id}}'>{{$foods->title}}</a></th>
                             <td>{{$foods->user?->created_at}}</td>
-                            <td class="status-{{ $foods->status }}">{{ $foods->status }}</td>
+                            <!-- <td class="status-{{ $foods->status }}">{{ $foods->status }}</td> -->
+                            <td>        @if($foods->status ==='New')
+                                <button class="btn btn-primary" disabled>NEW</button>
+                                @elseif($foods->status === 'Ongoing')
+                                <button class="btn btn-danger" disabled>ONGOING</button>
+                                @elseif($foods->status === 'Resolved')
+                                <button class="btn btn-success" disabled>RESOLVED</button>
+                            </td>
+                            @endif
                                 <td><form method="post" action="{{ url('status/update', $foods->id) }}">
                                 @csrf                             
                                 @method('PUT')
