@@ -111,7 +111,7 @@ class MapController extends Controller
         $student->title = $request->input('title');
         $student->category_id = $request->input('category_id');
         $student->description = $request->input('description');
-        $student->status = $request->input('status');
+        $student->status = ('New');
 
         if($request->hasfile('image'))
         {

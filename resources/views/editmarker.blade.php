@@ -132,7 +132,7 @@
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
-                        <a href="{{ url('/mapmarker') }}" class="btn btn-primary">Back</a>
+                        <a href="{{ url('/googleMaps') }}" class="btn btn-primary">Back</a>
 
                     </form>
 
