@@ -144,10 +144,10 @@ class MapController extends Controller
     }
 
     public function marker($id){
-        $student = Marker::find($id);
+       
         // $food = Food::with('user')->find($id);
         // $foods = Marker::where($id)->with('category','user')->get();
-        $markers = Marker::with('category','user')->get();
+        $markers = Marker::where('id',$id)->with('category','user')->get();
         //dd($foods);
         return view('marker', compact('markers'));
     }

@@ -291,7 +291,7 @@
                             <th scope="row">{{$foods->id}}</th>
                             <td>{{$foods->user?->name}}</td>
                             <td>{{$foods->user?->email}}</td>
-                            <th scope="row"><a href="$id">{{$foods->title}}</a></th>
+                            <th scope="row"><a href='/marker/{{$foods->id}}'>{{$foods->title}}</a></th>
                             <td>{{$foods->category_id}}</td>
                             <td class="status-{{ $foods->status }}">{{ $foods->status }}</td>
                                 <td><form method="post" action="{{ url('status/update', $foods->id) }}">
