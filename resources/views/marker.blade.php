@@ -10,14 +10,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
-
-<h3>Reports</h3>
-
+@foreach($markers as $marker)
+<h3>Report title: {{ $marker->title }}</h3>
+@endforeach
 <a href="{{ url('/main') }}" class="btn btn-primary">Back</a>
 <p> </p>
 <div class="card-columns">
     @foreach($markers as $marker)
-        @if(Auth::id() == $marker->user_id)
+
         <div class="card">
             <div class="card-body">
                 <h4><img src="{{ asset('public/storage/image/'.$marker->image) }}" width="300" height="300"></h4> 
@@ -66,7 +66,7 @@
                     <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
                 </p> 
                 @endcan
-                @endif
+    
             </div>
         </div>
         @endif
