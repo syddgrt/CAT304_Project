@@ -75,7 +75,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
                                                            
-      <a href="/googleMaps" class="get-started-btn scrollto">Report Now</a>
+      <a href="/googleMaps" class="get-started-btn scrollto">Map</a>
       
 
     </div>

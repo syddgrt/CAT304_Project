@@ -98,6 +98,9 @@
                             <ul>
                             
                             <li><a href="/yourReport">Your Report</a> </li>
+                              @can('admin')
+              <li><a href="/adminMain">Admin Page</a> </li>   
+              @endcan  
                                 <li><a href="#" onclick="logout()">Logout</a>
                                                     <script>
                                                         function logout() {
@@ -121,7 +124,7 @@
                 <!-- .navbar -->
 
                 <a href="/googleMaps" class="get-started-btn scrollto"
-                    >Report Now</a
+                    >Map</a
                 >
             </div>
         </header>
@@ -161,7 +164,7 @@
                     <div class="btn col-xl-2 col-md-4">
                         <div class="icon-box">
                             <i class="ri-bar-chart-box-line"></i>
-                            <h3><a href="/home">Home</a></h3>
+                            <h3><a href="/home">Dashboard</a></h3>
                         </div>
                     </div>
                     <div class="col-xl-2 col-md-4">
