@@ -88,7 +88,7 @@
                         background-color: yellow;
                         color: black;
                         padding: 10px;
-                        width: 160px;
+                        width: 145px;
                         border-radius: 10px
                       }
 
@@ -107,19 +107,6 @@
                           {{ $marker->status === 'New' ? 'red-box' : '' }}">
                         Status: {{ $marker->status}}
                       </p>
-                    @if(Auth::id() == $marker->user_id)
-                    <p>
-                        <a href="{{ url('editmarker/'.$marker->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                    </p> 
-                    @endif
-                    
-                    @can('admin')
-                    <p>
-                        <a href="{{ url('editmarker/'.$marker->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="{{ url('deletes/'.$marker->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                    </p> 
-                    @endcan
                     </div>
                 </div>
                 </div>
