@@ -53,10 +53,18 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <i class="icon-image"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">ReporTruzz</div>
             </a>
+            <style>
+                .icon-image {
+    content: url('TemplateGP/assets/img/favicon.png');
+    display: inline-block;
+    width: 20px; /* set the width of the icon*/
+    height: 20px; /* set the height of the icon*/
+}
+            </style>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
