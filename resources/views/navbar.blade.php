@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="TemplateGP/assets/img/favicon1.png" rel="icon">
+  <link href="TemplateGP/assets/img/favicon.png" rel="icon">
   <link href="TemplateGP/assets//img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -46,22 +46,16 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li>
-                            <a class="nav-link scrollto" href="#about">Home</a>
-                        </li>
-                        <li>
-                            <a class="nav-link scrollto" href="#about">About</a>
-                        </li>
+        
     
           <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              
-              <li class="dropdown"><a href="#"><span>Your Report</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Edit Report</a></li>
-                  <li><a href="#">Delete Report</a></li>
-                </ul>
+            <ul>         
+              <li><a href="/yourReport">Your Report</a> </li>   
+              @can('admin')
+              <li><a href="/adminMain">Admin Page</a> </li>   
+              @endcan       
                 <li><a href="#" onclick="logout()">Logout</a>
+
                                     <script>
                                         function logout() {
                                          // add extra functionality or validation here
@@ -73,15 +67,16 @@
 
                                     </script>
                                    
-                                </a></li>
-              </li>
+                                </li>
+              
             </ul>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+                                                           
       <a href="/googleMaps" class="get-started-btn scrollto">Report Now</a>
+      
 
     </div>
   </header><!-- End Header -->

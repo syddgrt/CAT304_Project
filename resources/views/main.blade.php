@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-        <title>Gp Bootstrap Template - Index</title>
+        <title>ReporTruzz</title>
         <meta content="" name="description" />
         <meta content="" name="keywords" />
 
@@ -97,7 +97,7 @@
                                         <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                             
-                            <li class="dropdown"><a href="/yourReport"><span>Your Report</span> <i class="bi bi-chevron-right"></i></a>
+                            <li><a href="/yourReport">Your Report</a> </li>
                                 <li><a href="#" onclick="logout()">Logout</a>
                                                     <script>
                                                         function logout() {
@@ -110,8 +110,8 @@
 
                                                     </script>
                                                 
-                                                </a></li>
-                            </li>
+                                                </li>
+                            
                             </ul>
                         </li>
                        

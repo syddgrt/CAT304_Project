@@ -50,7 +50,7 @@
         </div>
     </form> -->
 
-    <div class="card-body">
+    <div class="card-body"><style>.body{height: auto} </style>
 
         <div class="pt-4 pb-2">
         <h1 class="card-title text-center pb-0 fs-4">ReportTruzz</h5>
@@ -93,7 +93,6 @@
 @endsection
 
 
-
 <style>
     
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
@@ -106,7 +105,7 @@
 }
 	
 body {
-  background: linear-gradient(to right, #000000, #363727, #344105, #000000, #363727, #344105);
+  
   background-size: 200% 200%;
   animation: gradient 30s ease infinite;
 }

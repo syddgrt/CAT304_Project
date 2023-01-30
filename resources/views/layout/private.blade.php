@@ -11,6 +11,9 @@
 
     <title>Fill in</title>
 
+    <!-- Favicons -->
+  <link href="TemplateGP/assets/img/favicon.ico" rel="icon">
+  <link href="TemplateGP/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Custom fonts for this template-->
     <link href="/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
