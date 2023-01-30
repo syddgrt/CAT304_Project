@@ -11,7 +11,7 @@
 </head>
 
 @foreach($markers as $marker)
-<h3>Report title: {{ $marker->title }}</h3>
+<h3>Report Title: {{ $marker->title }}</h3>
 @endforeach
 <a href="{{ url('/main') }}" class="btn btn-primary">Back</a>
 <p> </p>
