@@ -160,13 +160,31 @@
     
             map.on('click', mapClicked);
             initMarkers();
+<<<<<<< HEAD
         
             
         
+=======
+            //create a custom marker when click (Still tak simpan marker tu)
+            map.on('click', function(e) {
+            var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+            marker.bindPopup("<form id='marker-form'>" +
+            "<input type='text' id='marker-input' placeholder='Enter information'>" +
+            "<input type='button' value='Save' onclick='saveMarkerInfo()'>" +
+            "</form>").openPopup();
+            });
+>>>>>>> origin/Outsource304
         }
         initMap();
      
         /* --------------------------- Initialize Markers --------------------------- */
+        function saveMarkerInfo() {
+             var form = document.getElementById("marker-form");
+             var input = document.getElementById("marker-input");
+             var info = input.value;
+             form.innerHTML = "Saved info: " + info;
+        }   
+        
         function initMarkers() {
             const initialMarkers = <?php echo json_encode($initialMarkers); ?>;
             for (let index = 0; index < initialMarkers.length; index++) {

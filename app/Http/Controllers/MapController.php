@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class MapController extends Controller
 {
+<<<<<<< HEAD
     public function show()
+=======
+
+    public function index()
+>>>>>>> origin/Outsource304
     {
         //  $markers = Marker::all();
         $markers = Marker::all();
