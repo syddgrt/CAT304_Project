@@ -87,6 +87,11 @@
                             >
                         </li>
                         <li>
+                            <a class="nav-link scrollto" href="#features"
+                                >How To Use</a
+                            >
+                        </li>
+                        <li>
                             <a class="nav-link scrollto" href="#team">Team</a>
                         </li>
                                         <li class="dropdown"><a href="#"><span>{{ Auth::user()->name }}</span> <i class="bi bi-chevron-down"></i></a>
@@ -150,7 +155,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="icon-box">
                             <i class="ri-check-line"></i>
-                            <h3><a href="">About</a></h3>
+                            <h3><a href="/main">About</a></h3>
                         </div>
                     </div>
                     <div class="btn col-xl-2 col-md-4">
@@ -162,7 +167,7 @@
                     <div class="col-xl-2 col-md-4">
                         <div class="icon-box">
                             <i class="ri-map-pin-line"></i>
-                            <h3><a href="">Maps</a></h3>
+                            <h3><a href="/googleMaps">Maps</a></h3>
                         </div>
                     </div>
                     @can('admin')
@@ -265,7 +270,7 @@
                         >
                             <div class="icon-box">
                                 <div class="icon">
-                                    <i class="bx bx-file"></i>
+                                    <i class="ri-map-pin-line"></i>
                                 </div>
                                 <h4><a href="/googleMaps">Maps</a></h4>
                                 <p>
@@ -294,154 +299,69 @@
       
                 
             </section>
-            <!-- End Counts Section -->
-
-            <!-- ======= Testimonials Section ======= -->
-            <section id="testimonials" class="testimonials">
-                <div class="container" data-aos="zoom-in">
-                    <div
-                        class="testimonials-slider swiper"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                    >
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="TemplateGP/assets/img/testimonials/testimonials-1.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Saul Goodman</h3>
-                                    <h4>Ceo &amp; Founder</h4>
-                                    <p>
-                                        <i
-                                            class="bx bxs-quote-alt-left quote-icon-left"
-                                        ></i>
-                                        Proin iaculis purus consequat sem cure
-                                        digni ssim donec porttitora entum
-                                        suscipit rhoncus. Accusantium quam,
-                                        ultricies eget id, aliquam eget nibh et.
-                                        Maecen aliquam, risus at semper.
-                                        <i
-                                            class="bx bxs-quote-alt-right quote-icon-right"
-                                        ></i>
-                                    </p>
-                                </div>
+             <!-- ======= Features Section ======= -->
+             <section id="features" class="features">
+                <div class="container" data-aos="fade-up">
+                    <div class="row">
+                        <div
+                            class="image col-lg-6"
+                            style="
+                                background-image: url('TemplateGP/assets/img/features.jpg');
+                            "
+                            data-aos="fade-right"
+                        ></div>
+                        <div
+                            class="col-lg-6"
+                            data-aos="fade-left"
+                            data-aos-delay="100"
+                        >
+                            <div
+                                class="icon-box mt-5 mt-lg-0"
+                                data-aos="zoom-in"
+                                data-aos-delay="150"
+                            >
+                                <h1> How To Use ReporTruzz</h1>
                             </div>
-                            <!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="TemplateGP/assets/img/testimonials/testimonials-2.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Sara Wilsson</h3>
-                                    <h4>Designer</h4>
-                                    <p>
-                                        <i
-                                            class="bx bxs-quote-alt-left quote-icon-left"
-                                        ></i>
-                                        Export tempor illum tamen malis malis
-                                        eram quae irure esse labore quem cillum
-                                        quid cillum eram malis quorum velit fore
-                                        eram velit sunt aliqua noster fugiat
-                                        irure amet legam anim culpa.
-                                        <i
-                                            class="bx bxs-quote-alt-right quote-icon-right"
-                                        ></i>
-                                    </p>
-                                </div>
+                            <div
+                                class="icon-box mt-5"
+                                data-aos="zoom-in"
+                                data-aos-delay="150"
+                            >
+                                <i class="bx bx-cube-alt"></i>
+                                <h4>Report Dashboard</h4>
+                                <p>
+                                    Report Dashboard enables users to view, edit, and delete reports while keeping track of the report status.
+                                </p>
                             </div>
-                            <!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="TemplateGP/assets/img/testimonials/testimonials-3.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Jena Karlis</h3>
-                                    <h4>Store Owner</h4>
-                                    <p>
-                                        <i
-                                            class="bx bxs-quote-alt-left quote-icon-left"
-                                        ></i>
-                                        Enim nisi quem export duis labore cillum
-                                        quae magna enim sint quorum nulla quem
-                                        veniam duis minim tempor labore quem
-                                        eram duis noster aute amet eram fore
-                                        quis sint minim.
-                                        <i
-                                            class="bx bxs-quote-alt-right quote-icon-right"
-                                        ></i>
-                                    </p>
-                                </div>
+                            <div
+                                class="icon-box mt-5"
+                                data-aos="zoom-in"
+                                data-aos-delay="150"
+                            >
+                                <i class="ri-map-pin-line"></i>
+                                <h4>Maps</h4>
+                                <p>
+                                Maps will display the location of the report as a marker, 
+                                clearly indicating its location to users who access the map.
+                                </p>
                             </div>
-                            <!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="TemplateGP/assets/img/testimonials/testimonials-4.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>Matt Brandon</h3>
-                                    <h4>Freelancer</h4>
-                                    <p>
-                                        <i
-                                            class="bx bxs-quote-alt-left quote-icon-left"
-                                        ></i>
-                                        Fugiat enim eram quae cillum dolore
-                                        dolor amet nulla culpa multos export
-                                        minim fugiat minim velit minim dolor
-                                        enim duis veniam ipsum anim magna sunt
-                                        elit fore quem dolore labore illum
-                                        veniam.
-                                        <i
-                                            class="bx bxs-quote-alt-right quote-icon-right"
-                                        ></i>
-                                    </p>
-                                </div>
+                            <div
+                                class="icon-box mt-5"
+                                data-aos="zoom-in"
+                                data-aos-delay="150"
+                            >
+                                <i class="bx bx-receipt"></i>
+                                <h4>Create Report</h4>
+                                <p>
+                                Users can upload photos to alert others about 
+                                faulty infrastructure such as road damage and active vandalism.
+                                </p>
                             </div>
-                            <!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img
-                                        src="TemplateGP/assets/img/testimonials/testimonials-5.jpg"
-                                        class="testimonial-img"
-                                        alt=""
-                                    />
-                                    <h3>John Larson</h3>
-                                    <h4>Entrepreneur</h4>
-                                    <p>
-                                        <i
-                                            class="bx bxs-quote-alt-left quote-icon-left"
-                                        ></i>
-                                        Quis quorum aliqua sint quem legam fore
-                                        sunt eram irure aliqua veniam tempor
-                                        noster veniam enim culpa labore duis
-                                        sunt culpa nulla illum cillum fugiat
-                                        legam esse veniam culpa fore nisi cillum
-                                        quid.
-                                        <i
-                                            class="bx bxs-quote-alt-right quote-icon-right"
-                                        ></i>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End testimonial item -->
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </section>
-            <!-- End Testimonials Section -->
+            <!-- End Features Section -->
 
             <!-- ======= Team Section ======= -->
             <section id="team" class="team">
@@ -462,9 +382,11 @@
                             >
                                 <div class="member-img">
                                     <img
-                                        src="TemplateGP/assets/img/team/team-1.jpg"
+                                        text-align: center;
+                                        src="TemplateGP/assets/img/team/syed.jpeg"
                                         class="img-fluid"
                                         alt=""
+                                        style="width:400px; height:330px;"
                                     />
                                     <div class="social">
                                         <a href=""
@@ -498,9 +420,11 @@
                             >
                                 <div class="member-img">
                                     <img
-                                        src="TemplateGP/assets/img/team/gambo.png"
+                                    text-align: center;
+                                        src="TemplateGP/assets/img/team/berat.jpg"
                                         class="img-fluid"
                                         alt=""
+                                        style="width:400px; height:330px;"
                                     />
                                     <div class="social">
                                         <a href=""
@@ -533,11 +457,13 @@
                                 data-aos-delay="300"
                             >
                                 <div class="member-img">
-                                    <img
-                                        text-align: center;
-                                        src="TemplateGP/assets/img/team/team-3.jpg"
-                                        class="img-fluid"
-                                        alt=""
+                                <img
+
+                                    text-align: center;
+                                    src="TemplateGP/assets/img/team/syaqir.jpeg"
+                                    class="img-fluid"
+                                    alt=""
+                                    style="width:400px; height:330px;"
                                     />
                                     <div class="social">
                                         <a href=""

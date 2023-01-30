@@ -11,7 +11,7 @@
 </head>
 
 
-<h3>Your Reports</h3>
+<h3>Reports</h3>
 
 <a href="{{ url('/main') }}" class="btn btn-primary">Back</a>
 <p> </p>
