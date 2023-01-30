@@ -278,9 +278,8 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Report Name</th>                   
-                            <th scope="col">Status</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Report Name</th> 
+                            <th scope="col">Date</th>                  
                             <th scope="col">Change Status</th>
                             
                         </tr>
@@ -292,7 +291,7 @@
                             <td>{{$foods->user?->name}}</td>
                             <td>{{$foods->user?->email}}</td>
                             <th scope="row"><a href='/marker/{{$foods->id}}'>{{$foods->title}}</a></th>
-                            <td>{{$foods->category_id}}</td>
+                            <td>{{$foods->user?->created_at}}</td>
                             <td class="status-{{ $foods->status }}">{{ $foods->status }}</td>
                                 <td><form method="post" action="{{ url('status/update', $foods->id) }}">
                                 @csrf                             
