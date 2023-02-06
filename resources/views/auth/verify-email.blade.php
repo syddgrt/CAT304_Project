@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.admin') 
 
 @section('content')
     <div>
@@ -13,17 +13,19 @@
 
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf
-
-        <button type="submit">
-            {{ __('Resend Verification Email') }}
-        </button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-user btn-block">
+                {{ __('Resend Verification Email') }}
+            </button>
+        </div> 
     </form>
 
     <form method="POST" action="{{ route('logout') }}">
         @csrf
-
-        <button type="submit">
-            {{ __('Logout') }}
-        </button>
-    </form>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-user btn-block">
+                {{ __('Logout') }}
+            </button>
+        </div>
+        </form>
 @endsection

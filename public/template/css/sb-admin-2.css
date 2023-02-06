@@ -18,7 +18,7 @@
   --red: #e74a3b;
   --orange: #fd7e14;
   --yellow: #f6c23e;
-  --green: #1cc88a;card
+  --green: #1cc88a;
   --teal: #20c9a6;
   --cyan: #36b9cc;
   --white: #fff;
@@ -587,6 +587,8 @@ pre code {
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
+  /* margin: auto; max-width: 300px; */
+  
 }
 
 .no-gutters {
@@ -4489,7 +4491,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #fff0;
   background-clip: border-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
@@ -4525,7 +4527,7 @@ input[type="button"].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
+  background-color: transparent;
 }
 
 .card-title {
@@ -9814,6 +9816,7 @@ a:focus {
 .container-xl {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  
 }
 
 .scroll-to-top {
@@ -10867,9 +10870,11 @@ a:focus {
 }
 
 .bg-register-image {
-  background: url("https://unsplash.com/photos/NSuufgf-BME");
-  background-position: center;
-  background-size: cover;
+  background: url("https://gitlab.com/azeeqcool/image/raw/main/NicePng_email-symbol-png_9602830_1_.png");
+  background-position: right;
+  background-size: 50%;
+background-repeat: no-repeat;
+
 }
 
 .bg-try-image {

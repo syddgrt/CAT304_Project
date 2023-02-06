@@ -1,4 +1,4 @@
-@extends('layout.public')
+@extends('layout.private')
 @section('content')
 
 <div class="container">
@@ -13,6 +13,7 @@
 
                     <form action="{{ url('image/'.$location->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                      
 
                         <div class="mb-3">
                             <label for="">Food Name</label>
@@ -38,9 +39,12 @@
                             <input type="text" name="food_description" required class="form-control">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="">Email</label>
-                            <input type="text" name="user_email" required class="form-control">
+                        
+
+                          <div class="mb-3">
+                            
+                           <input type="hidden" name="user_id" value="{{ $current_user_id }}">
+
                         </div>
 
                         <div class="mb-3">
@@ -50,7 +54,7 @@
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="{{ url('/googleMaps') }}" class="btn btn-primary">Back</a>
+                            <a href="{{ url('/marker/'.$location->id) }}" class="btn btn-primary">Back</a>
 
                         </div>
 

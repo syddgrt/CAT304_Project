@@ -1,10 +1,16 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MyviController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\urReportController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +35,21 @@ Route::get('/create', function () {
     return view('create');
 });
 
+
+
 // Route::get('/googleMaps', [GoogleController::class, 'index']);
 
-Route::get('/myvi', [MyviController::class, 'index']);
+
+
+// Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+
+
+Route::get('/googleMaps', [GoogleController::class, 'index']);
+
+
+
+Route::get('/myvi', [MyviController::class, 'index','index2']);
 
 Route::view('main', 'main')
 	->name('main')
@@ -41,21 +59,58 @@ Route::view('main', 'main')
 // Route::get('/googleMaps', [MapController::class, 'show']);
 Route::get('/googleMaps', [MapController::class, 'show']);
 
-Route::get('/marker/{id}', [ FoodController::class, 'marker' ] );
+Route::get('/marker/{id}', [MapController::class, 'marker'] );
 
 Route::get('/image/{id}', [FoodController::class, 'imageForm']);
 
 Route::post('/image/{id}', [ FoodController::class, 'store' ] );
 
+Route::get('/adminMain', [AdminController::class, 'index']);
+
+Route::get('/adminMain/{id}', [AdminController::class, 'index2']);
+
+
+Route::put('/status/update/{id}', [AdminController::class, 'updateStatus']);
 
 Route::get('cmarker', [MapController::class, 'imageForm']);
 
 Route::post('cmarker', [ MapController::class, 'store' ] );
 
-
+Route::get('mapmarker', [ MapController::class, 'markers' ] );
 
 
 
 Route::get('edit/{id}', [FoodController::class, 'edit']);
 Route::put('update/{id}', [FoodController::class, 'update']);
-Route::get('delete/{id}', [FoodController::class, 'destroy']);
+Route::get('deletes/{id}', [MapController::class, 'destroy']);
+
+Route::get('editmarker/{id}', [MapController::class, 'edit']);
+Route::put('update/{id}', [MapController::class, 'update']);
+Route::get('delete/{id}', [MapController::class, 'destroy']);
+
+Route::get('home', [DashboardController::class, 'index']);
+
+Route::get('/yourReport', [urReportController::class, 'index']);
+
+
+
+/* Route to display notice that user should verify email first before can proceed*/
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+/* Route to handle requests generated when the user clicks the email verification link in the email*/
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/main');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+/* Route when user request to resend a verification link if the user accidentally loses the first verification link*/
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
