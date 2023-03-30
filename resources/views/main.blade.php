@@ -463,7 +463,7 @@
                                 <img
 
                                     text-align: center;
-                                    src="TemplateGP/assets/img/team/syaqir.jpeg"
+                                    src="TemplateGP/assets/img/team/syaqir.jpg"
                                     class="img-fluid"
                                     alt=""
                                     style="width:400px; height:330px;"
